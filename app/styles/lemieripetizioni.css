@@ -1,0 +1,38 @@
+nav li a:hover{
+  background-color:#e7e7e7 !important;
+}
+
+.ripetizioni li {
+  clear: both;
+  height: 100px;
+  padding-top: 10px;
+}
+
+.ripetizioni {
+  list-style: none;
+}
+
+.thumb {
+  float: left;
+  margin: -0.5em 0.5em 0.5em 0;
+  padding-bottom: 1em;
+  height: 100px;
+  width: 100px;
+}
+
+label {
+	margin:10px;
+}
+
+li.thumbnail.ripetizioni-listing.ng-scope {
+  margin-bottom: 0px;
+}
+
+section {
+  min-height:100vh; /*setto altezza minima il viewport*/
+  overflow:hidden; /*in questo modo se il contenuto aumenta, anche la section aumenta*/
+}
+
+#dettaglio_ripetizione {
+  text-align: center;
+}
