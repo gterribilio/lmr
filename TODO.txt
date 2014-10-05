@@ -1,0 +1,6 @@
+TODO: 
+
+1. registrati
+2. utilizzare ordine_scuola dell'utente autenticato e non passarli schiantati
+2. login con facebook
+3. parte professore
