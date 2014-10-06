@@ -403,7 +403,7 @@ grunt.registerTask('build', [
   'copy:dist',
   'cdnify',
   'cssmin',
-  //'uglify',
+/*  'uglify',*/
   'filerev',
   'usemin',
   'htmlmin'
