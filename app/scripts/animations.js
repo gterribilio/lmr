@@ -1,4 +1,4 @@
-angular.module('lemieripetizioni3App').animation('.phone', function() {
+angular.module('lemieripetizioni3App').animation('.phone', ['.phone', function() {
 
   var animateUp = function(element, className, done) {
     if(className != 'active') {
@@ -47,4 +47,4 @@ angular.module('lemieripetizioni3App').animation('.phone', function() {
     addClass: animateUp,
     removeClass: animateDown
   };
-});
+}]);
