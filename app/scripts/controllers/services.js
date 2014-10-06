@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('lemieripetizioni3App') //non metto le quadre perchè lo sto richiamando
+app
 .factory('services', ['$http', function($http) {
     var service = {};
     service.getFromRESTServer = function(msg,callback) {

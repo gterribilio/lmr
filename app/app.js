@@ -8,8 +8,10 @@
  *
  * Main module of the application.
  */
- angular
- .module('lemieripetizioni3App',['ngRoute','ngAnimate']).config(['$routeProvider', '$httpProvider', function($routeProvider,$httpProvider) {
+ var app = angular
+ .module('lemieripetizioni3App',['ngRoute','ngAnimate']);
+
+ app.config(['$routeProvider', '$httpProvider', function($routeProvider,$httpProvider) {
  		$routeProvider.
  		when('/', {templateUrl: 'views/ricerca_ripetizioni.html', controller: 'RicercaRipetizioniCtrl'}).
  		when('/ripetizione/:id', {templateUrl: 'views/dett_ripetizione.html', controller: 'DettRipetizioniCtrl'}).

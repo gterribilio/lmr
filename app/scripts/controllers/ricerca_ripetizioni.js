@@ -8,7 +8,7 @@
  * Controller of the lemieripetizioniApp
  */
 
- angular.module('lemieripetizioni3App')
+ app
  .controller('RicercaRipetizioniCtrl', ['$scope', '$rootScope', '$window', 'services', function ($scope, $rootScope, $window, services) {
     $scope.ripetizioni = {};
     $scope.username = null;

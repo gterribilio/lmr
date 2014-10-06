@@ -1,4 +1,4 @@
-angular.module('lemieripetizioni3App').animation('.phone', ['.phone', function() {
+app.animation('.phone', ['.phone', function() {
 
   var animateUp = function(element, className, done) {
     if(className != 'active') {
