@@ -11,7 +11,7 @@
 /* When defining a module with no module dependencies, the array of dependencies should be defined and empty.Non ci deve essere proprio!
 Lo indico solo in app.js */
 angular.module('lemieripetizioni3App')
-.controller('DettRipetizioniCtrl', function ($scope, $routeParams, $location, services) {
+.controller('DettRipetizioniCtrl', [ '$scope', '$routeParams', '$location', 'services', function ($scope, $routeParams, $location, services) {
     $scope.id_ripetizione = $routeParams.id;
 
     services.getFromRESTServer("id_ripe="+$scope.id_ripetizione,"dettaglio_ripetizione").success(function (response) {
@@ -34,4 +34,4 @@ angular.module('lemieripetizioni3App')
             });
         }
     }
-});
+}]);

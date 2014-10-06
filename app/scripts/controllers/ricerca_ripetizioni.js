@@ -9,7 +9,7 @@
  */
 
  angular.module('lemieripetizioni3App')
- .controller('RicercaRipetizioniCtrl', function ($scope, $rootScope, $window, services) {
+ .controller('RicercaRipetizioniCtrl', ['$scope', '$rootScope', '$window', 'services', function ($scope, $rootScope, $window, services) {
     $scope.ripetizioni = {};
     $scope.username = null;
     $scope.password = null;
@@ -65,4 +65,4 @@
         //$scope.ordine_scuola = ""; al momento non ripulisco più questo campo
         $scope.citta = "";
     };
-});
+}]);
