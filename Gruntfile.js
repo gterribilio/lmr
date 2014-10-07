@@ -215,30 +215,30 @@ livereload: {
     By default, your `index.html`'s <!-- Usemin block --> will take care of
     minification. These next options are pre-configured if you do not wish
     to use the Usemin blocks.*/
-    cssmin: {
-      dist: {
-        files: {
-          '<%= yeoman.dist %>/styles/main.css': [
-        '.tmp/styles/{,*/}*.css'
-        ]
-      }
-    }
-  },
-  uglify: {
-    dist: {
-      files: {
-        '<%= yeoman.dist %>/scripts/scripts.js': [
-        '<%= yeoman.dist %>/scripts/scripts.js'
-        ]
-      }
-    },
-    options: {
-      mangle: false
-    }
-  },
-  concat: {
-    dist: {}
-  },
+  //   cssmin: {
+  //     dist: {
+  //       files: {
+  //         '<%= yeoman.dist %>/styles/main.css': [
+  //       '.tmp/styles/{,*/}*.css'
+  //       ]
+  //     }
+  //   }
+  // },
+  // uglify: {
+  //   dist: {
+  //     files: {
+  //       '<%= yeoman.dist %>/scripts/scripts.js': [
+  //       '<%= yeoman.dist %>/scripts/scripts.js'
+  //       ]
+  //     }
+  //   },
+  //   options: {
+  //     mangle: false
+  //   }
+  // },
+  // concat: {
+  //   dist: {}
+  // },
 
   imagemin: {
     dist: {
@@ -408,8 +408,18 @@ grunt.registerTask('build', [
 
 grunt.registerTask('heroku:production', [
   'clean:dist',
-  'copy:dist'
-  
+  'wiredep',
+  'useminPrepare',
+  'concurrent:dist',
+  'autoprefixer',
+  'concat',
+  'ngmin',
+  'copy:dist',
+  'cdnify',
+  'cssmin',
+  'uglify',
+  'filerev',
+  'usemin:dist'
   ]);
 
 grunt.registerTask('default', [
