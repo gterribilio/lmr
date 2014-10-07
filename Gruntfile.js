@@ -105,6 +105,8 @@ livereload: {
       dist: {
         options: {
           open: true,
+          beautify : true,
+          mangle   : true,
           base: '<%= yeoman.dist %>'
         }
       }
