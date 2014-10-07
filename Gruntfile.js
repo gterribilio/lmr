@@ -377,8 +377,6 @@ grunt.registerTask('serve', 'Compile then start a connect web server', function 
     ]);
 });
 
-grunt.registerTask('heroku:production');
-
 grunt.registerTask('server', 'DEPRECATED TASK. Use the "serve" task instead', function (target) {
   grunt.log.warn('The `server` task has been deprecated. Use `grunt serve` to start a server.');
   grunt.task.run(['serve:' + target]);
@@ -403,10 +401,15 @@ grunt.registerTask('build', [
   'copy:dist',
   'cdnify',
   'cssmin',
-/*  'uglify',*/
+  'uglify',
   'filerev',
-  'usemin',
-  'htmlmin'
+  'usemin'
+  ]);
+
+grunt.registerTask('heroku:production', [
+  'clean:dist',
+  'copy:dist'
+  
   ]);
 
 grunt.registerTask('default', [
