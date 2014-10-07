@@ -417,9 +417,8 @@ grunt.registerTask('heroku:production', [
   'copy:dist',
   'cdnify',
   'cssmin',
-  'uglify',
   'filerev',
-  'usemin:dist',
+  'usemin',
   'ngmin'
   ]);
 
