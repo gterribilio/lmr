@@ -1,6 +1,8 @@
 'use strict';
 
-app
+var services = angular.module('Services', []);
+
+services
 .factory('services', ['$http', function($http) {
     var service = {};
     service.getFromRESTServer = function(msg,callback) {

@@ -8,8 +8,9 @@
  * Controller of the lemieripetizioniApp
  */
 
- app
- .controller('RicercaRipetizioniCtrl', ['$scope', '$rootScope', '$window', 'services', function ($scope, $rootScope, $window, services) {
+var ricerca = angular.module('RicercaRipetizioniCtrlModule', []);
+
+ ricerca.controller('RicercaRipetizioniCtrl', ['$scope', '$rootScope', '$window', 'services', function ($scope, $rootScope, $window, services) {
     $scope.ripetizioni = {};
     $scope.username = null;
     $scope.password = null;

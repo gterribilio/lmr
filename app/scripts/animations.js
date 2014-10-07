@@ -1,4 +1,6 @@
-app.animation('.phone', ['.phone', function() {
+var anim = angular.module('Animations', []);
+
+anim.animation('.phone', ['.phone', function() {
 
   var animateUp = function(element, className, done) {
     if(className != 'active') {
