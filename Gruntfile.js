@@ -414,13 +414,13 @@ grunt.registerTask('heroku:production', [
   'concurrent:dist',
   'autoprefixer',
   'concat',
-  'ngmin',
   'copy:dist',
   'cdnify',
   'cssmin',
   'uglify',
   'filerev',
-  'usemin:dist'
+  'usemin:dist',
+  'ngmin'
   ]);
 
 grunt.registerTask('default', [
