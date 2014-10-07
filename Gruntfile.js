@@ -105,8 +105,6 @@ livereload: {
       dist: {
         options: {
           open: true,
-          beautify : true,
-          mangle   : true,
           base: '<%= yeoman.dist %>'
         }
       }
@@ -217,40 +215,41 @@ livereload: {
     By default, your `index.html`'s <!-- Usemin block --> will take care of
     minification. These next options are pre-configured if you do not wish
     to use the Usemin blocks.*/
-  //   cssmin: {
-  //     dist: {
-  //       files: {
-  //         '<%= yeoman.dist %>/styles/main.css': [
-  //       '.tmp/styles/{,*/}*.css'
-  //       ]
-  //     }
-  //   }
-  // },
-  // uglify: {
-  //   dist: {
-  //     files: {
-  //       '<%= yeoman.dist %>/scripts/scripts.js': [
-  //       '<%= yeoman.dist %>/scripts/scripts.js'
-  //       ]
-  //     }
-  //   },
-  //   options: {
-  //     mangle: false
-  //   }
-  // },
-  // concat: {
-  //   dist: {}
-  // },
-
-  imagemin: {
+    cssmin: {
+      dist: {
+        files: {
+          '<%= yeoman.dist %>/styles/main.css': [
+        '.tmp/styles/{,*/}*.css'
+        ]
+      }
+    }
+  },
+  uglify: {
     dist: {
-      files: [{
-        expand: true,
-        cwd: '<%= yeoman.app %>/images',
-      src: '{,*/}*.{png,jpg,jpeg,gif}',
-      dest: '<%= yeoman.dist %>/images'
-    }]
-  }
+      files: {
+        '<%= yeoman.dist %>/scripts/scripts.js': [
+        '<%= yeoman.dist %>/scripts/scripts.js'
+        ]
+      }
+    },
+    options: {
+     beautify : true,
+     mangle   : true
+   }
+ },
+ concat: {
+  dist: {}
+},
+
+imagemin: {
+  dist: {
+    files: [{
+      expand: true,
+      cwd: '<%= yeoman.app %>/images',
+    src: '{,*/}*.{png,jpg,jpeg,gif}',
+    dest: '<%= yeoman.dist %>/images'
+  }]
+}
 },
 
 svgmin: {
