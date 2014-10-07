@@ -12,10 +12,7 @@ app.config([ "$routeProvider", "$httpProvider", function(a) {
     }).otherwise({
         redirectTo: "/"
     });
-} ]).run(function(a) {
-    a.userData = {}, sessionStorage.isLogged = !1, a.isLogged = !1, a.showLogin = !1, 
-    a.showLeMieRipetizioni = !1;
-});
+} ]);
 
 var services = angular.module("Services", []);
 
@@ -29,8 +26,9 @@ services.factory("services", [ "$http", function(a) {
 var ricerca = angular.module("RicercaRipetizioniCtrlModule", []);
 
 ricerca.controller("RicercaRipetizioniCtrl", [ "$scope", "$rootScope", "$window", "services", function(a, b, c, d) {
-    a.ripetizioni = {}, a.username = null, a.password = null, a.ordine_scuola = "3", 
-    a.citta = "VENARIA", a.doRicerca = function() {
+    b.userData = {}, sessionStorage.isLogged = !1, b.isLogged = !1, b.showLogin = !1, 
+    b.showLeMieRipetizioni = !1, a.ripetizioni = {}, a.username = null, a.password = null, 
+    a.ordine_scuola = "3", a.citta = "VENARIA", a.doRicerca = function() {
         return "" == a.citta || "" == a.ordine_scuola ? (alert("Devi compilare tutti i campi per effettuare la ricerca"), 
         !1) : void d.getFromRESTServer("ord_scuola=" + a.ordine_scuola + "&citta_filtro=" + a.citta, "ricerca_quando").success(function(b) {
             a.ripetizioni = b, a.msg = b.errMsg;

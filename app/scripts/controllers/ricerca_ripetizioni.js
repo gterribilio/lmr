@@ -11,6 +11,14 @@
 var ricerca = angular.module('RicercaRipetizioniCtrlModule', []);
 
  ricerca.controller('RicercaRipetizioniCtrl', ['$scope', '$rootScope', '$window', 'services', function ($scope, $rootScope, $window, services) {
+    
+    $rootScope.userData = {};
+
+    sessionStorage.isLogged=false;
+    $rootScope.isLogged=false;
+    $rootScope.showLogin=false;
+    $rootScope.showLeMieRipetizioni=false;
+
     $scope.ripetizioni = {};
     $scope.username = null;
     $scope.password = null;
