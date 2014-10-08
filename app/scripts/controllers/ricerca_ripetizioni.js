@@ -8,12 +8,13 @@
  * Controller of the lemieripetizioniApp
  */
 
-var ricerca = angular.module('RicercaRipetizioniCtrlModule', []);
+ var ricerca = angular.module('RicercaRipetizioniCtrlModule', []);
 
  ricerca.controller('RicercaRipetizioniCtrl', ['$scope', '$rootScope', '$window', 'services', function ($scope, $rootScope, $window, services) {
-    
+
     $rootScope.userData = {};
 
+    /*Usare i persistent cookie*/
     sessionStorage.isLogged=false;
     $rootScope.isLogged=false;
     $rootScope.showLogin=false;
@@ -23,13 +24,19 @@ var ricerca = angular.module('RicercaRipetizioniCtrlModule', []);
     $scope.username = null;
     $scope.password = null;
 
-    $scope.ordine_scuola="3";
-    $scope.citta="VENARIA";
+    $scope.datada = null;
+    $scope.dataa=null;
+    $scope.orada=null;
+    $scope.oraa=null;
 
     $scope.doRicerca = function() {
-        if($scope.citta == "" || $scope.ordine_scuola == "") {alert('Devi compilare tutti i campi per effettuare la ricerca'); return false;} 
+        if($scope.datada == "" || $scope.dataa == "") {alert('Devi inserire almeno le date'); return false;} 
         //viene lanciato quando faccio submit
-        services.getFromRESTServer("ord_scuola="+$scope.ordine_scuola+"&citta_filtro="+$scope.citta,"ricerca_quando").
+
+        alert($rootScope.userData.ID_ORDINE_SCUOLA+" " + $rootScope.userData.CITTA +" " + $scope.datada + " " + $scope.dataa + " " + $scope.orada
+        + " " + $scope.oraa);
+        services.getFromRESTServer("ord_scuola=" + $rootScope.userData.ordine_scuola + "&citta_filtro=" + $rootScope.userData.citta +
+            "&datada=" + $scope.datada + "&dataa=" + $scope.dataa + "&orada=" + $scope.orada + "&oraa=" + $scope.oraa,"ricerca_custom").
         success(function (data) {
             $scope.ripetizioni=data;
             $scope.msg=data.errMsg;
@@ -56,12 +63,12 @@ var ricerca = angular.module('RicercaRipetizioniCtrlModule', []);
             }
             else { 
                 alert('Benvenuto ' + data[0].NOME);
-            
+
                 sessionStorage.isLogged = true;
                 $rootScope.isLogged = sessionStorage.isLogged;
                 
                 $rootScope.showLogin=false;
-                $rootScope.userData=data;
+                $rootScope.userData=data[0];
 
             }
             //stampa il JSON Object
@@ -71,7 +78,9 @@ var ricerca = angular.module('RicercaRipetizioniCtrlModule', []);
 
     //cancella il form
     $scope.doReset = function() {
-        //$scope.ordine_scuola = ""; al momento non ripulisco più questo campo
-        $scope.citta = "";
+        $scope.datada=null;
+        $scope.dataa=null;
+        $scope.orada=null;
+        $scope.oraa=null;
     };
 }]);

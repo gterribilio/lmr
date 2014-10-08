@@ -169,3 +169,15 @@ li.thumbnail.ripetizioni-listing.ng-scope {
     outline: 0;
     background-color: rgba(255,255,255,.3);
 }
+
+.subtitle {
+  display: inline-block;
+  position: relative;
+  color: #ffffff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
+  line-height: 30px;
+  font-weight: 400;
+  font-size: 30px;
+  letter-spacing: 2px;
+  font-family: 'Lato';
+}
