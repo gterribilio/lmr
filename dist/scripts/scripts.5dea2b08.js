@@ -1,6 +1,6 @@
 "use strict";
 
-var app = angular.module("lemieripetizioni3App", [ "ngRoute", "ngAnimate", "Services", "DettRipetizioniCtrlModule", "Animations", "RicercaRipetizioniCtrlModule" ]);
+var app = angular.module("lemieripetizioni3App", [ "ngRoute", "ngAnimate", "Services", "DettRipetizioniCtrlModule", "Animations", "RicercaRipetizioniCtrlModule", "angularDatepicker" ]);
 
 app.config([ "$routeProvider", "$httpProvider", function(a) {
     a.when("/", {
@@ -28,9 +28,8 @@ var ricerca = angular.module("RicercaRipetizioniCtrlModule", []);
 ricerca.controller("RicercaRipetizioniCtrl", [ "$scope", "$rootScope", "$window", "services", function(a, b, c, d) {
     b.userData = {}, sessionStorage.isLogged = !1, b.isLogged = !1, b.showLogin = !1, 
     b.showLeMieRipetizioni = !1, a.ripetizioni = {}, a.username = null, a.password = null, 
-    a.ordine_scuola = "3", a.citta = "VENARIA", a.doRicerca = function() {
-        return "" == a.citta || "" == a.ordine_scuola ? (alert("Devi compilare tutti i campi per effettuare la ricerca"), 
-        !1) : void d.getFromRESTServer("ord_scuola=" + a.ordine_scuola + "&citta_filtro=" + a.citta, "ricerca_quando").success(function(b) {
+    a.datada = null, a.dataa = null, a.orada = null, a.oraa = null, a.doRicerca = function() {
+        d.getFromRESTServer("ord_scuola=" + b.userData.ID_ORDINE_SCUOLA + "&citta_filtro=" + b.userData.CITTA + "&datada=" + a.datada + "&dataa=" + a.dataa + "&orada=" + a.orada + "&oraa=" + a.oraa, "ricerca_custom").success(function(b) {
             a.ripetizioni = b, a.msg = b.errMsg;
         });
     }, b.doLeMieRipetizioni = function() {
@@ -42,10 +41,10 @@ ricerca.controller("RicercaRipetizioniCtrl", [ "$scope", "$rootScope", "$window"
         !1) : void d.getFromRESTServer("username=" + a.username + "&password=" + a.password, "login").success(function(a) {
             null != a.jsonError || null != a.errCode ? alert(a.errMsg) : (alert("Benvenuto " + a[0].NOME), 
             sessionStorage.isLogged = !0, b.isLogged = sessionStorage.isLogged, b.showLogin = !1, 
-            b.userData = a);
+            b.userData = a[0]);
         });
     }, a.doReset = function() {
-        a.citta = "";
+        a.datada = null, a.dataa = null, a.orada = null, a.oraa = null;
     };
 } ]);
 
@@ -6432,6 +6431,22 @@ anim.animation(".phone", [ ".phone", function() {
             }), this.liveRegion.remove();
         }
     });
+});
+
+var datepicker = angular.module("angularDatepicker", []);
+
+datepicker.directive("datepicker", function() {
+    return {
+        link: function(a, b, c) {
+            $(b).datepicker({
+                dateFormat: "yy-mm-dd",
+                onSelect: function(b) {
+                    var d = c.ngModel + " = '" + b + "'";
+                    a.$apply(d);
+                }
+            });
+        }
+    };
 }), $(window).scroll(function() {
     $(".navbar").offset().top > 50 ? $(".navbar-fixed-top").addClass("top-nav-collapse") : $(".navbar-fixed-top").removeClass("top-nav-collapse");
 }), $(function() {

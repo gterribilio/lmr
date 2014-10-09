@@ -77,33 +77,36 @@
 	  			<ul class="ripetizioni">
 	  				<li ng-repeat="ripetizione in ripetizioni" class="thumbnail ripetizioni-listing">
 	  					<a href="#/ripetizione/{{ripetizione.ID_RIPETIZIONE}}" class="thumb"><img ng-src="images/logo.png"></a>
-	  					<a href="#/ripetizione/{{ripetizione.ID_RIPETIZIONE}}">{{ripetizione.COGN_PROF}}</a>
-	  					<p>{{ripetizione.ID_RIPETIZIONE}} {{ripetizione.DATA}} {{ripetizione.COGN_PROF}} {{ripetizione.NOME_PROF}} {{ripetizione.ORA_INIZIO}} {{ripetizione.ORA_FINE}}</p>
+	  					DOCENTE: <a href="">{{ripetizione.cogn_prof}} {{ripetizione.nome_prof}}</a>
+	  					<p>QUANDO: {{ripetizione.DATA}}</p>
+	  					<p>DALLE: {{ripetizione.ora_inizio}} ALLE: {{ripetizione.ora_fine}}</p>
 	  				</li>
-	  			</ul>
-	  		</div>
-
-	  		<div ng-if="ripetizioni.length == 0" class="text-center">
-	  			<p>Cerca subito la ripetizione per te!</p>
-	  		</div>
+	  			</li>
+	  		</ul>
 	  	</div>
-	  </section>
 
-	  <section id="lemieripetizioni" ng-show="showLeMieRipetizioni" class="content_section" style="padding-top:60px;">
-	  	<h2>Le mie ripetizioni</h2>
-	  	<div id="ripetizioniPrenotate_list" class="col-md-8 col-md-offset-2" style="margin-top:60px;">
-	  		<div ng-if="ripetizioniPrenotate.length !=0">						
-	  			<ul class="ripetizioni">
-	  				<li ng-repeat="ripetizione in ripetizioniPrenotate" class="thumbnail ripetizioni-listing">
-	  					<a href="#/ripetizione/{{ripetizione.ID_RIPETIZIONE}}" class="thumb"><img ng-src="images/logo.png"></a>
-	  					<a href="#/ripetizione/{{ripetizione.ID_RIPETIZIONE}}">{{ripetizione.COGN_PROF}}</a>
-	  					<p>{{ripetizione.ID_RIPETIZIONE}} {{ripetizione.DATA}} {{ripetizione.COGN_PROF}} {{ripetizione.NOME_PROF}} {{ripetizione.ORA_INIZIO}} {{ripetizione.ORA_FINE}}</p>
-	  				</li>
-	  			</ul>
-	  		</div>
-
-	  		<div ng-if="ripetizioniPrenotate.length == 0" class="text-center">
-	  			<p>Al momento non hai ripetizioni prenotate, cosa aspetti? Inizia subito!</p>
-	  		</div>
+	  	<div ng-if="ripetizioni.length == 0" class="text-center">
+	  		<p>Cerca subito la ripetizione per te!</p>
 	  	</div>
-	  </section>
+	  </div>
+	</section>
+
+	<section id="lemieripetizioni" ng-show="showLeMieRipetizioni" class="content_section" style="padding-top:60px;">
+		<h2>Le mie ripetizioni</h2>
+		<div id="ripetizioniPrenotate_list" class="col-md-8 col-md-offset-2" style="margin-top:60px;">
+			<div ng-if="ripetizioniPrenotate.length !=0">						
+				<ul class="ripetizioni">
+					<li ng-repeat="ripetizione in ripetizioniPrenotate" class="thumbnail ripetizioni-listing">
+						<a href="" class="thumb"><img ng-src="images/logo.png"></a>
+						<a href="#/ripetizione/{{ripetizione.ID_RIPETIZIONE}}">DOCENTE: {{ripetizione.COGN_PROF}} {{ripetizione.NOME_PROF}}</a>
+						<p>QUANDO: {{ripetizione.DATA}}</p>
+						<p>DALLE: {{ripetizione.ORA_INIZIO}} ALLE: {{ripetizione.ORA_FINE}}</p>
+					</li>
+				</ul>
+			</div>
+
+			<div ng-if="ripetizioniPrenotate.length == 0" class="text-center">
+				<p>Al momento non hai ripetizioni prenotate, cosa aspetti? Inizia subito!</p>
+			</div>
+		</div>
+	</section>

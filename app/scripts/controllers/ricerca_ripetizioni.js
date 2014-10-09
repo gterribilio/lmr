@@ -30,12 +30,10 @@
     $scope.oraa=null;
 
     $scope.doRicerca = function() {
-        if($scope.datada == "" || $scope.dataa == "") {alert('Devi inserire almeno le date'); return false;} 
-        //viene lanciato quando faccio submit
 
-        alert($rootScope.userData.ID_ORDINE_SCUOLA+" " + $rootScope.userData.CITTA +" " + $scope.datada + " " + $scope.dataa + " " + $scope.orada
-        + " " + $scope.oraa);
-        services.getFromRESTServer("ord_scuola=" + $rootScope.userData.ordine_scuola + "&citta_filtro=" + $rootScope.userData.citta +
+        //alert($rootScope.userData.ID_ORDINE_SCUOLA+" " + $rootScope.userData.CITTA +" " + $scope.datada + " " + $scope.dataa + " " + $scope.orada
+        //+ " " + $scope.oraa);
+        services.getFromRESTServer("ord_scuola=" + $rootScope.userData.ID_ORDINE_SCUOLA + "&citta_filtro=" + $rootScope.userData.CITTA +
             "&datada=" + $scope.datada + "&dataa=" + $scope.dataa + "&orada=" + $scope.orada + "&oraa=" + $scope.oraa,"ricerca_custom").
         success(function (data) {
             $scope.ripetizioni=data;

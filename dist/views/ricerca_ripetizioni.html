@@ -20,63 +20,56 @@
 	  			&nbsp;o&nbsp; <button class="btn btn-lg btn-primary">Registrati</button>
 	  		</div>
 	  	</div>
-
 	  </section>
 
-	  <section id="ricerca_ripetizione" ng-show="isLogged" class="content_section" style="padding-top:30px;">
+	  <section id="ricerca_ripetizione" ng-show="isLogged" class="container content_section text-center" style="padding-top:30px;">
 	  	<form class="form-horizontal" role="form" novalidate>
 	  		{{msg}} da vedere validazione su angular form
+	  		
 	  		<div class="row">
-	  			<div class="form-group">
-	  				<label for="citta" class="col-sm-2 col-xs-3 col-xs-offset-2 col-sm-offset-3 control-label">Formazione: </label>
-	  				<div class="radio">
-	  					<label>
-	  						<input type="radio" ng-model="ordine_scuola" name="optionscitta" id="ordine_scuola1" value="1" checked>
-	  						Scuole elementari
-	  					</label>
-	  				</div>
+	  			<div class="col-lg-8 col-lg-offset-2 text-center">
+	  				<h3>Che giorno hai tempo?</h3>
 	  			</div>
 	  		</div>
 	  		<div class="row">
 	  			<div class="form-group">
-	  				<label for="citta" class="col-sm-2 col-xs-3 col-xs-offset-2 col-sm-offset-3 control-label"></label>
-	  				<div class="radio">
-	  					<label>
-	  						<input type="radio" ng-model="ordine_scuola" name="optionscitta" id="ordine_scuola2" value="2">
-	  						Scuole primarie di I° grado
-	  					</label>
+	  				<label for="datada" class="col-sm-2 hidden-xs control-label">Dal: </label>
+	  				<div class="col-sm-3 col-xs-5 col-xs-offset-1 col-md-offset-0">
+	  					<input type="text" datepicker="" ng-model="datada"  class="form-control" placeholder="dal giorno">
 	  				</div>
-	  			</div>
-	  		</div>
-	  		<div class="row">
-	  			<div class="form-group">
-	  				<label for="citta" class="col-sm-2 col-xs-3 col-xs-offset-2 col-sm-offset-3 control-label"></label>
-	  				<div class="radio">
-	  					<label>
-	  						<input type="radio" ng-model="ordine_scuola" name="optionscitta" id="ordine_scuola3" value="3">
-	  						Scuole primarie di II° grado
-	  					</label>
-	  				</div>
-	  			</div>
-	  		</div>
-	  		<div class="row">
-	  			<div class="form-group">
-	  				<label for="citta" class="col-xs-2 col-xs-offset-3 control-label">Città: </label>
+	  				<label for="dataa" class="col-sm-2 hidden-xs control-label">Al: </label>
 	  				<div class="col-sm-3 col-xs-5">
-	  					<input type="text" ng-model="citta" class="form-control" id="citta" placeholder="">
+	  					<input type="text" datepicker="" ng-model="dataa" class="form-control" placeholder="al giorno">
 	  				</div>
 	  			</div>
 	  		</div>
+	  		<div class="row">
+	  			<div class="col-lg-8 col-lg-offset-2 text-center">
+	  				<h3>In che orario?</h3>
+	  			</div>
+	  		</div>
+	  		<div class="row">
+	  			<div class="form-group">
+	  				<label for="orada" class="col-sm-2 hidden-xs control-label">Dalle: </label>
+	  				<div class="col-sm-3 col-xs-5 col-xs-offset-1 col-md-offset-0">
+	  					<input type="time" ng-model="orada" class="form-control" placeholder="dall'ora">
+	  				</div>
+	  				<label for="oraa" class="col-sm-2 hidden-xs control-label">Alle: </label>
+	  				<div class="col-sm-3 col-xs-5">
+	  					<input type="time" ng-model="oraa" class="form-control" placeholder="all'ora">
+	  				</div>
+	  			</div>
+	  		</div>          
 	  		<div class="row" style="margin-top:50px;">
 	  			<div class="form-group">
-	  				<div class="col-xs-1 col-md-1 col-xs-offset-3 col-md-offset-5">
+	  				<div class="col-xs-2 col-md-3 col-xs-offset-2 col-md-offset-3">
 	  					<button class="btn btn-lg btn-primary" ng-click="doReset();">Pulisci</button>
 	  				</div>
-	  				<div class="col-md-6 col-xs-5">
+	  				<div class="col-md-4 col-xs-5">
 	  					<button class="btn btn-lg btn-primary" autofocus ng-click='doRicerca();' style='margin-left: 63px;'>Ricerca</button>
 	  				</div>
 	  			</div>
-	  		</div>
+	  		</div>	  		
 	  	</form>
 
 	  	<div id="ripetizioni_list" class="col-md-8 col-md-offset-2" style="margin-top:60px;">
@@ -84,33 +77,36 @@
 	  			<ul class="ripetizioni">
 	  				<li ng-repeat="ripetizione in ripetizioni" class="thumbnail ripetizioni-listing">
 	  					<a href="#/ripetizione/{{ripetizione.ID_RIPETIZIONE}}" class="thumb"><img ng-src="images/logo.png"></a>
-	  					<a href="#/ripetizione/{{ripetizione.ID_RIPETIZIONE}}">{{ripetizione.COGN_PROF}}</a>
-	  					<p>{{ripetizione.ID_RIPETIZIONE}} {{ripetizione.DATA}} {{ripetizione.COGN_PROF}} {{ripetizione.NOME_PROF}} {{ripetizione.ORA_INIZIO}} {{ripetizione.ORA_FINE}}</p>
+	  					DOCENTE: <a href="">{{ripetizione.cogn_prof}} {{ripetizione.nome_prof}}</a>
+	  					<p>QUANDO: {{ripetizione.DATA}}</p>
+	  					<p>DALLE: {{ripetizione.ora_inizio}} ALLE: {{ripetizione.ora_fine}}</p>
 	  				</li>
-	  			</ul>
-	  		</div>
-
-	  		<div ng-if="ripetizioni.length == 0" class="text-center">
-	  			<p>Cerca subito la ripetizione per te!</p>
-	  		</div>
+	  			</li>
+	  		</ul>
 	  	</div>
-	  </section>
 
-	  <section id="lemieripetizioni" ng-show="showLeMieRipetizioni" class="content_section" style="padding-top:60px;">
-	  	<h2>Le mie ripetizioni</h2>
-	  	<div id="ripetizioniPrenotate_list" class="col-md-8 col-md-offset-2" style="margin-top:60px;">
-	  		<div ng-if="ripetizioniPrenotate.length !=0">						
-	  			<ul class="ripetizioni">
-	  				<li ng-repeat="ripetizione in ripetizioniPrenotate" class="thumbnail ripetizioni-listing">
-	  					<a href="#/ripetizione/{{ripetizione.ID_RIPETIZIONE}}" class="thumb"><img ng-src="images/logo.png"></a>
-	  					<a href="#/ripetizione/{{ripetizione.ID_RIPETIZIONE}}">{{ripetizione.COGN_PROF}}</a>
-	  					<p>{{ripetizione.ID_RIPETIZIONE}} {{ripetizione.DATA}} {{ripetizione.COGN_PROF}} {{ripetizione.NOME_PROF}} {{ripetizione.ORA_INIZIO}} {{ripetizione.ORA_FINE}}</p>
-	  				</li>
-	  			</ul>
-	  		</div>
-
-	  		<div ng-if="ripetizioniPrenotate.length == 0" class="text-center">
-	  			<p>Al momento non hai ripetizioni prenotate, cosa aspetti? Inizia subito!</p>
-	  		</div>
+	  	<div ng-if="ripetizioni.length == 0" class="text-center">
+	  		<p>Cerca subito la ripetizione per te!</p>
 	  	</div>
-	  </section>
+	  </div>
+	</section>
+
+	<section id="lemieripetizioni" ng-show="showLeMieRipetizioni" class="content_section" style="padding-top:60px;">
+		<h2>Le mie ripetizioni</h2>
+		<div id="ripetizioniPrenotate_list" class="col-md-8 col-md-offset-2" style="margin-top:60px;">
+			<div ng-if="ripetizioniPrenotate.length !=0">						
+				<ul class="ripetizioni">
+					<li ng-repeat="ripetizione in ripetizioniPrenotate" class="thumbnail ripetizioni-listing">
+						<a href="" class="thumb"><img ng-src="images/logo.png"></a>
+						<a href="#/ripetizione/{{ripetizione.ID_RIPETIZIONE}}">DOCENTE: {{ripetizione.COGN_PROF}} {{ripetizione.NOME_PROF}}</a>
+						<p>QUANDO: {{ripetizione.DATA}}</p>
+						<p>DALLE: {{ripetizione.ORA_INIZIO}} ALLE: {{ripetizione.ORA_FINE}}</p>
+					</li>
+				</ul>
+			</div>
+
+			<div ng-if="ripetizioniPrenotate.length == 0" class="text-center">
+				<p>Al momento non hai ripetizioni prenotate, cosa aspetti? Inizia subito!</p>
+			</div>
+		</div>
+	</section>
