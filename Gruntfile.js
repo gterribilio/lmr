@@ -228,14 +228,10 @@ livereload: {
     dist: {
       files: {
         '<%= yeoman.dist %>/scripts/scripts.js': [
-        '<%= yeoman.dist %>/scripts/scripts.js'
+        '<%= yeoman.dist %>/scripts/*.js','<%= yeoman.dist %>/scripts/controllers/*.js'
         ]
       }
-    },
-    options: {
-     beautify : true,
-     mangle   : true
-   }
+    }
  },
  concat: {
   dist: {}
@@ -398,29 +394,13 @@ grunt.registerTask('build', [
   'concurrent:dist',
   'autoprefixer',
   'concat',
-  'ngmin',
-  'copy:dist',
-  'cdnify',
-  'cssmin',
-  'uglify',
-  'filerev',
-  'usemin'
-  ]);
-
-grunt.registerTask('heroku:production', [
-  'clean:dist',
-  'wiredep',
-  'useminPrepare',
-  'concurrent:dist',
-  'autoprefixer',
-  'concat',
   'copy:dist',
   'cdnify',
   'cssmin',
   'uglify',
   'filerev',
   'usemin',
-  'ngmin'
+  'htmlmin'
   ]);
 
 grunt.registerTask('default', [
