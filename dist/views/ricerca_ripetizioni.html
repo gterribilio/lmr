@@ -22,8 +22,9 @@
 	  	</div>
 	  </section>
 
-	  <section id="ricerca_ripetizione" ng-show="isLogged" class="container content_section text-center" style="padding-top:30px;">
+	  <section id="ricerca_ripetizione" ng-show="isLogged && showRicercaRipetizioni" class="content_section" style="padding-top:30px;">
 	  	<form class="form-horizontal" role="form" novalidate>
+	  		<button ng-click="showRicercaRipetizioni=false;">X</button>
 	  		{{msg}} da vedere validazione su angular form
 	  		
 	  		<div class="row">
@@ -77,7 +78,7 @@
 	  			<ul class="ripetizioni">
 	  				<li ng-repeat="ripetizione in ripetizioni" class="thumbnail ripetizioni-listing">
 	  					<a href="#/ripetizione/{{ripetizione.ID_RIPETIZIONE}}" class="thumb"><img ng-src="images/logo.png"></a>
-	  					DOCENTE: <a href="">{{ripetizione.cogn_prof}} {{ripetizione.nome_prof}}</a>
+	  					<p>DOCENTE: <a href="">{{ripetizione.cogn_prof}} {{ripetizione.nome_prof}}</a></p>
 	  					<p>QUANDO: {{ripetizione.DATA}}</p>
 	  					<p>DALLE: {{ripetizione.ora_inizio}} ALLE: {{ripetizione.ora_fine}}</p>
 	  				</li>
@@ -98,7 +99,7 @@
 				<ul class="ripetizioni">
 					<li ng-repeat="ripetizione in ripetizioniPrenotate" class="thumbnail ripetizioni-listing">
 						<a href="" class="thumb"><img ng-src="images/logo.png"></a>
-						<a href="#/ripetizione/{{ripetizione.ID_RIPETIZIONE}}">DOCENTE: {{ripetizione.COGN_PROF}} {{ripetizione.NOME_PROF}}</a>
+						<p>DOCENTE: <a href="#/ripetizione/{{ripetizione.ID_RIPETIZIONE}}">{{ripetizione.COGN_PROF}} {{ripetizione.NOME_PROF}}</a></p>
 						<p>QUANDO: {{ripetizione.DATA}}</p>
 						<p>DALLE: {{ripetizione.ORA_INIZIO}} ALLE: {{ripetizione.ORA_FINE}}</p>
 					</li>

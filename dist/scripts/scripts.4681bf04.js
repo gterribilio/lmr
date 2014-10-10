@@ -27,8 +27,9 @@ var ricerca = angular.module("RicercaRipetizioniCtrlModule", []);
 
 ricerca.controller("RicercaRipetizioniCtrl", [ "$scope", "$rootScope", "$window", "services", function(a, b, c, d) {
     b.userData = {}, sessionStorage.isLogged = !1, b.isLogged = !1, b.showLogin = !1, 
-    b.showLeMieRipetizioni = !1, a.ripetizioni = {}, a.username = null, a.password = null, 
-    a.datada = null, a.dataa = null, a.orada = null, a.oraa = null, a.doRicerca = function() {
+    b.showRicercaRipetizioni = !0, b.showLeMieRipetizioni = !1, a.ripetizioni = {}, 
+    a.username = null, a.password = null, a.datada = null, a.dataa = null, a.orada = null, 
+    a.oraa = null, a.doRicerca = function() {
         d.getFromRESTServer("ord_scuola=" + b.userData.ID_ORDINE_SCUOLA + "&citta_filtro=" + b.userData.CITTA + "&datada=" + a.datada + "&dataa=" + a.dataa + "&orada=" + a.orada + "&oraa=" + a.oraa, "ricerca_custom").success(function(b) {
             a.ripetizioni = b, a.msg = b.errMsg;
         });
@@ -6458,26 +6459,6 @@ datepicker.directive("datepicker", function() {
     });
 }), $(".navbar-collapse ul li a").click(function() {
     $(".navbar-toggle:visible").click();
-});
-
-var timerid;
-
-$(document).ready(function() {
-    function a() {
-        $("section").each(function() {
-            $("body").scrollTop() >= $(this).offset().top && ($("#page-top a").removeClass("active"), 
-            $("#page-top a[href=#" + $(this).attr("id") + "]").addClass("active"));
-        });
-    }
-    $("#page-top a").click(function(a) {
-        a.preventDefault(), $("#page-top a").removeClass("active");
-        var b = $(this).attr("href").substring(1);
-        $("body").animate({
-            scrollTop: $("section#" + b).offset().top
-        });
-    }), $("body").scrollTop(1), $(window).scroll(function() {
-        clearTimeout(timerid), timerid = setTimeout(a, 50);
-    });
 }), jQuery.easing.jswing = jQuery.easing.swing, jQuery.extend(jQuery.easing, {
     def: "easeOutQuad",
     swing: function(a, b, c, d, e) {
