@@ -1,14 +1,13 @@
 /*Disposti in ordine decrescente di importanza*/
 
-section,header {
-  min-height:100vh; /*setto altezza minima il viewport*/
+section,article,header {
   overflow:hidden; /*in questo modo se il contenuto aumenta, anche la section aumenta*/
 }
 
 /*cambia solo da 768px in su*/
 .content_section {
-    padding-top: 50px;
-  }
+  padding-top: 50px;
+}
 
 .icon-bar {
   background-color: white;
@@ -104,7 +103,7 @@ li.thumbnail.ripetizioni-listing.ng-scope {
 
   /*Altrimenti la parte alta della sezione viene nascosta dal menù*/
   .content_section {
-    padding-top: 100px;
+    padding-top: 50px;
   }
 }
 
@@ -154,26 +153,53 @@ li.thumbnail.ripetizioni-listing.ng-scope {
 }
 
 .navbar-custom .nav li.active {
-    outline: none;
-    background-color: rgba(255,255,255,.3);
+  outline: none;
+  background-color: rgba(255,255,255,.3);
 }
 
 .navbar-custom .navbar-brand .navbar-toggle:focus,
 .navbar-custom .navbar-brand .navbar-toggle:active {
-    outline: 0;
+  outline: 0;
 }
 
 .navbar-custom .nav li a:hover,
 .navbar-custom .nav li a:focus,
 .navbar-custom .nav li a.active {
-    outline: 0;
-    background-color: rgba(255,255,255,.3);
+  outline: 0;
+  background-color: rgba(255,255,255,.3);
 }
 
 .subtitle {
   display: inline-block;
   position: relative;
   color: #ffffff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
+  line-height: 30px;
+  font-weight: 400;
+  font-size: 30px;
+  letter-spacing: 2px;
+  font-family: 'Lato';
+}
+
+/*FACEBOOK BUTTON*/
+#facebook_button_span_icon {
+  float:left;
+  display:block;
+  width:23px; 
+  height:23px;
+  background-image:url('../images/facebook.png');
+  margin-right:7px;
+}
+
+.btn {
+  margin-bottom: 5px;
+}
+
+/*FOOTER CONTACT*/
+#developer {
+  padding: 50px;
+  display: inline-block;
+  position: relative;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
   line-height: 30px;
   font-weight: 400;

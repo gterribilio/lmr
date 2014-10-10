@@ -27,7 +27,7 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
       <![endif]-->
       <!-- Add your site or application content here -->
-      <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+      <nav id="navigation-bar" class="navbar navbar-custom navbar-fixed-top" role="navigation">
         <div class="container-fluid">
           <!-- Brand and toggle get grouped for better mobile display -->
           <div class="navbar-header">
@@ -58,55 +58,92 @@
         </div>
       </nav>
 
-      <header id="intro" class="intro">
-        <div class="intro-body">
-          <div class="container">
-            <div class="row">
-              <div class="col-md-8 col-md-offset-2">
-                <h1 class="brand-heading title">Le Mie Ripetizioni</h1>
-                <p class="subtitle">Trovare una ripetizione non è mai stato così facile.<br/><br/>
-                  Cerca subito la ripetizione più vicina a te!</p>
+      <div id="master-content">
+        <section id="intro" class="intro">
+          <div class="intro-body">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                  <h1 class="brand-heading title">Le Mie Ripetizioni</h1>
+                  <p class="subtitle">Trovare una ripetizione non è mai stato così facile.<br/><br/>
+                    Cerca subito la ripetizione più vicina a te!</p>
+                  </div>
                 </div>
               </div>
             </div>
+          </section>
+
+          <div class="view-container">
+            <ng-view class="view-frame"></ng-view>
           </div>
-        </header>
 
-        <div class="view-container">
-          <ng-view class="view-frame"></ng-view>
-        </div>
+          <section id="area_prof" class="content_section">     
+            <h2>Area Prof</h2>
+            <img src="images/logo.png" alt="logo"><br>
+            <p>Contattaci subito!!<br/>Non aspettare!</p>
+            Via Roma 1 - Torino
+          </section>
+          <section id="chi_siamo" class="content_section">     
+            <h2>Chi siamo</h2>
+            <img src="images/logo.png" alt="logo"><br>
+            <p>Contattaci subito!!<br/>Non aspettare!</p>
+            Via Roma 1 - Torino
+          </section>
 
-        <section id="area_prof" class="content_section" style="text-align:center">     
-          <h2>Area Prof</h2>
-          <img src="images/logo.png" alt="logo"><br>
-          <p>Contattaci subito!!<br/>Non aspettare!</p>
-          Via Roma 1 - Torino
+          <!--Sezione contatti-->
+          <section id="contatti" class="content_section">
+
+            <div class="row">
+              <article id="developer" class="col-xs-12 col-md-6"> 
+                <div class="animated">
+                  <!--applico la stessa animazione del sottotitolo, ovvero fade in da sinistra-->
+                  <strong><p>Giuseppe Terribilio</p></strong>
+                  <address>
+                    Web Developer, Web Designer<br>
+                    Chieri<br>
+                    10023<br>
+                    <abbr title="Phone">P:</abbr> 349 5905190
+                  </address>
+                  <ul class="social" id="css3">
+                    <li class="twitter">
+                      <a href="http://twitter.com/"><strong>Twitter</strong></a>
+                    </li>
+                    <li class="facebook">
+                      <a href="http://www.facebook.com/gterribilio"><strong>Facebook</strong></a>
+                    </li>
+                    <li class="flickr">
+                      <a href="http://www.flickr.com/photos/"><strong>Flickr</strong></a>
+                    </li>
+                    <li class="linkedin">
+                      <a href="http://www.linkedin.com/"><strong>LinkedIn</strong></a>
+                    </li>
+                    <li class="rss">
+                      <a href="http://feeds.feedburner.com/"><strong>RSS</strong></a>
+                    </li>
+                  </ul>   
+                </div> 
+              </article>
+              <article class="col-xs-12 col-md-6">
+                <div id="map" style="height:100%;"></div>
+              </article>
+            </div>
+          </row>       
         </section>
-        <section id="chi_siamo" class="content_section" style="text-align:center">     
-          <h2>Chi siamo</h2>
-          <img src="images/logo.png" alt="logo"><br>
-          <p>Contattaci subito!!<br/>Non aspettare!</p>
-          Via Roma 1 - Torino
-        </section>
-        <section id="contatti" class="content_section" style="text-align:center">     
-          <h2>Contatti</h2>
-          <img src="images/logo.png" alt="logo"><br>
-          <p>Contattaci subito!!<br/>Non aspettare!</p>
-          Via Roma 1 - Torino
-        </section>
 
-        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
-        <script>
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-         m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      </div><!--end master content-->
 
-       ga('create', 'UA-XXXXX-X');
-       ga('send', 'pageview');
-       </script>
+      <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+      <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+     })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-       <!-- build:js(.) scripts/oldieshim.js -->
+     ga('create', 'UA-XXXXX-X');
+     ga('send', 'pageview');
+     </script>
+
+     <!-- build:js(.) scripts/oldieshim.js -->
     <!--[if lt IE 9]>
     <script src="bower_components/es5-shim/es5-shim.js"></script>
     <script src="bower_components/json3/lib/json3.min.js"></script>
@@ -133,12 +170,12 @@
     <script src="scripts/jquery-ui.min.js"></script>
     <script src="scripts/angular-datepicker.js"></script>
 
-
     <!-- scripts javascript e jquery frontend-->
     <script src="scripts/lemieripetizioni.js"></script> 
 
     <!-- Plugin JavaScript -->
     <script src="scripts/jquery.easing.min.js"></script>
     <!-- endbuild -->
+
   </body>
   </html>

@@ -387,6 +387,7 @@ grunt.registerTask('test', [
   'karma'
   ]);
 
+/*usare questa conf anche per deploy su heroku. La cartella dist contiene l'app da deployare su heroku */
 grunt.registerTask('build', [
   'clean:dist',
   'wiredep',

@@ -1,4 +1,4 @@
-	  <section id="login" class="content_section" style="text-align:center" ng-show="showLogin">
+	  <section id="login" class="content_section" ng-show="showLogin">
 	  	<h2>Inserisci le tue credenziali e inizia subito a cercare le tue ripetizioni!</h2>
 	  	<div class="row">
 	  		<div class="form-group"> 
@@ -14,17 +14,21 @@
 	  			</div>
 	  		</div>
 	  	</div>
-	  	<div class="form-group" style="margin:50px 0px;">
-	  		<div class="col-sm-8 col-sm-offset-2">
-	  			<button class="btn btn-lg btn-primary" data-ng-click='doAccedi();'>Accedi</button> 
-	  			&nbsp;o&nbsp; <button class="btn btn-lg btn-primary">Registrati</button>
+	  	<div class="row">
+	  		<div class="form-group" style="margin:20px 0px;">	
+	  			<button class="btn btn-lg btn-primary col-xs-8 col-xs-offset-2 col-md-2 col-md-offset-2" data-ng-click='doAccedi();'>Accedi</button> 
+	  			<button class="btn btn-lg btn-primary col-xs-8 col-xs-offset-2 col-md-3 col-md-offset-1" data-ng-click='doAccedi();'>
+	  				<span id="facebook_button_span_icon"></span>
+	  				<span style="float:left;">Login con Facebook</span>
+	  			</button>
+	  			<button class="btn btn-lg btn-primary col-xs-8 col-xs-offset-2 col-md-2 col-md-offset-1">Registrati</button>
 	  		</div>
 	  	</div>
 	  </section>
 
-	  <section id="ricerca_ripetizione" ng-show="isLogged && showRicercaRipetizioni" class="content_section" style="padding-top:30px;">
+	  <section id="ricerca_ripetizione" ng-show="isLogged && showRicercaRipetizioni" class="content_section">
 	  	<form class="form-horizontal" role="form" novalidate>
-	  		<button ng-click="showRicercaRipetizioni=false;">X</button>
+	  		<button type="button" class="close" ng-click="$parent.showRicercaRipetizioni=false;"><span aria-hidden="true" class="glyphicon glyphicon-remove-circle"></span><span class="sr-only">Close</span></button>
 	  		{{msg}} da vedere validazione su angular form
 	  		
 	  		<div class="row">
@@ -61,30 +65,45 @@
 	  				</div>
 	  			</div>
 	  		</div>          
-	  		<div class="row" style="margin-top:50px;">
-	  			<div class="form-group">
-	  				<div class="col-xs-2 col-md-3 col-xs-offset-2 col-md-offset-3">
-	  					<button class="btn btn-lg btn-primary" ng-click="doReset();">Pulisci</button>
-	  				</div>
-	  				<div class="col-md-4 col-xs-5">
-	  					<button class="btn btn-lg btn-primary" autofocus ng-click='doRicerca();' style='margin-left: 63px;'>Ricerca</button>
-	  				</div>
-	  			</div>
-	  		</div>	  		
-	  	</form>
+	  		<div class="row">
+	  			<div class="form-group" style="margin-top:20px;">			
+	  				<button class="btn btn-lg btn-primary col-xs-4 col-xs-offset-4 col-md-3 col-md-offset-3" ng-click="doReset();">
+	  					Pulisci</button>
+	  					<button class="btn btn-lg btn-primary col-xs-4 col-xs-offset-4 col-md-3 col-md-offset-1" autofocus ng-click="doRicerca();">Ricerca</button>
+	  				</div>	
+	  			</div>  		
+	  		</form>
 
-	  	<div id="ripetizioni_list" class="col-md-8 col-md-offset-2" style="margin-top:60px;">
-	  		<div ng-if="ripetizioni.length !=0">						
-	  			<ul class="ripetizioni">
-	  				<li ng-repeat="ripetizione in ripetizioni" class="thumbnail ripetizioni-listing">
-	  					<a href="#/ripetizione/{{ripetizione.ID_RIPETIZIONE}}" class="thumb"><img ng-src="images/logo.png"></a>
-	  					<p>DOCENTE: <a href="">{{ripetizione.cogn_prof}} {{ripetizione.nome_prof}}</a></p>
-	  					<p>QUANDO: {{ripetizione.DATA}}</p>
-	  					<p>DALLE: {{ripetizione.ora_inizio}} ALLE: {{ripetizione.ora_fine}}</p>
+	  		<!-- prova grid bootstrap 		
+	  		<div class="row" style="background-color:red;">
+	  			<div class="col-xs-12 col-md-8">.col-xs-12 .col-md-8</div>
+	  			<div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
+	  		</div>
+
+	  		<div class="row" style="background-color:blue;">
+	  			<div class=" ">.col-xs-4 .col-md-4</div>
+	  			<div class="col-xs-10 col-xs-offset-4 col-md-2 col-md-offset-2">.col-xs-4 .col-md-4</div>
+	  			<div class="col-xs-10 col-xs-offset-4 col-md-2 col-md-offset-2">.col-xs-4 .col-md-4</div>
+	  		</div>
+
+	  		<div class="row" style="background-color:pink;">
+	  			<div class="col-xs-6">.col-xs-6</div>
+	  			<div class="col-xs-6">.col-xs-6</div>
+	  		</div>
+
+	  		<div id="ripetizioni_list" class="col-md-8 col-md-offset-2" style="margin-top:60px;">
+	  			<div ng-if="ripetizioni.length !=0">						
+	  				<ul class="ripetizioni">
+	  					<li ng-repeat="ripetizione in ripetizioni" class="thumbnail ripetizioni-listing">
+	  						<a href="#/ripetizione/{{ripetizione.ID_RIPETIZIONE}}" class="thumb"><img ng-src="images/logo.png"></a>
+	  						<p>DOCENTE: <a href="">{{ripetizione.cogn_prof}} {{ripetizione.nome_prof}}</a></p>
+	  						<p>QUANDO: {{ripetizione.DATA}}</p>
+	  						<p>DALLE: {{ripetizione.ora_inizio}} ALLE: {{ripetizione.ora_fine}}</p>
+	  					</li>
 	  				</li>
-	  			</li>
-	  		</ul>
-	  	</div>
+	  			</ul>
+	  		</div>
+	  	-->
 
 	  	<div ng-if="ripetizioni.length == 0" class="text-center">
 	  		<p>Cerca subito la ripetizione per te!</p>
@@ -92,7 +111,8 @@
 	  </div>
 	</section>
 
-	<section id="lemieripetizioni" ng-show="showLeMieRipetizioni" class="content_section" style="padding-top:60px;">
+	<section id="lemieripetizioni" ng-show="showLeMieRipetizioni" class="content_section">
+		<button type="button" class="close" ng-click="$parent.showLeMieRipetizioni=false;"><span aria-hidden="true" class="glyphicon glyphicon-remove-circle"></span><span class="sr-only">Close</span></button>
 		<h2>Le mie ripetizioni</h2>
 		<div id="ripetizioniPrenotate_list" class="col-md-8 col-md-offset-2" style="margin-top:60px;">
 			<div ng-if="ripetizioniPrenotate.length !=0">						

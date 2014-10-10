@@ -15,10 +15,12 @@
     $rootScope.userData = {};
 
     /*Usare i persistent cookie*/
+
+    /*TODO capire dove mettere queste variabili della rootscope. Se messe in app.js ci sono problemi nella minificazione*/
     sessionStorage.isLogged=false;
     $rootScope.isLogged=false;
     $rootScope.showLogin=false;
-    $rootScope.showRicercaRipetizioni=true;
+    $rootScope.showRicercaRipetizioni=false;
     
     $rootScope.showLeMieRipetizioni=false;
 
