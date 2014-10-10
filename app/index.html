@@ -22,7 +22,7 @@
   <link rel="stylesheet" href="styles/jquery-ui.css">
   <!-- endbuild -->
 </head>
-<body ng-app="lemieripetizioni3App" data-spy="scroll" data-target=".navbar-fixed-top .intro" id="page-top">
+<body ng-app="lemieripetizioni3App" data-spy="scroll" data-target=".navbar-fixed-top" id="page-top">
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
       <![endif]-->
@@ -48,6 +48,7 @@
                 <a href="#page-top" class="page-scroll"></a>
               </li>
               <li ng-hide="isLogged"><a class="page-scroll" ng-click="showLogin=true;" href="#login">Login</a></li>
+              <li ng-show="isLogged"><a class="page-scroll" ng-click="showRicercaRipetizioni=true;" href="#ricerca_ripetizione">Cerca</a></li>
               <li ng-show="isLogged"><a class="page-scroll" ng-click="showLeMieRipetizioni=true;doLeMieRipetizioni();" href="#lemieripetizioni">Le mie ripetizioni</a></li>
               <li><a class="page-scroll" href="#area_prof">Area Prof</a></li>
               <li><a class="page-scroll" href="#chi_siamo">Chi siamo</a></li> <!--  class="active"></-->

@@ -18,6 +18,8 @@
     sessionStorage.isLogged=false;
     $rootScope.isLogged=false;
     $rootScope.showLogin=false;
+    $rootScope.showRicercaRipetizioni=true;
+    
     $rootScope.showLeMieRipetizioni=false;
 
     $scope.ripetizioni = {};
@@ -33,12 +35,12 @@
 
         //alert($rootScope.userData.ID_ORDINE_SCUOLA+" " + $rootScope.userData.CITTA +" " + $scope.datada + " " + $scope.dataa + " " + $scope.orada
         //+ " " + $scope.oraa);
-        services.getFromRESTServer("ord_scuola=" + $rootScope.userData.ID_ORDINE_SCUOLA + "&citta_filtro=" + $rootScope.userData.CITTA +
-            "&datada=" + $scope.datada + "&dataa=" + $scope.dataa + "&orada=" + $scope.orada + "&oraa=" + $scope.oraa,"ricerca_custom").
-        success(function (data) {
-            $scope.ripetizioni=data;
-            $scope.msg=data.errMsg;
-        });
+services.getFromRESTServer("ord_scuola=" + $rootScope.userData.ID_ORDINE_SCUOLA + "&citta_filtro=" + $rootScope.userData.CITTA +
+    "&datada=" + $scope.datada + "&dataa=" + $scope.dataa + "&orada=" + $scope.orada + "&oraa=" + $scope.oraa,"ricerca_custom").
+success(function (data) {
+    $scope.ripetizioni=data;
+    $scope.msg=data.errMsg;
+});
     } //end doRicerca
 
     //devo usare rootscope siccome è esterno al controller RicercaRipetizioniCtrl

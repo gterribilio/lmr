@@ -17,13 +17,12 @@ $(function() {
         event.preventDefault();
     });
 });
-
 // Closes the Responsive page-top on page-top Item Click
 
 $('.navbar-collapse ul li a').click(function() {
     $('.navbar-toggle:visible').click();
 });
-
+/*
 var timerid; //Used to fire scroll function once after scrolling is done.
 $(document).ready(function(){
     $("#page-top a").click(function(e){
@@ -50,4 +49,4 @@ $(document).ready(function(){
             }
         });
     }
-});
+});*/
