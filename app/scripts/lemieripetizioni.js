@@ -156,12 +156,10 @@ function initialize() {
 var map = new google.maps.Map(document.getElementById('map'),
   mapOptions);
 var myLatLng = new google.maps.LatLng(45.01532, 7.80689);
-var image = 'images/map-marker.png';
 
 var marker = new google.maps.Marker({
     position: myLatLng,
     map: map,
-    icon: image,
     animation: google.maps.Animation.DROP
 });
 
