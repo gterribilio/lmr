@@ -1,16 +1,12 @@
 /*Disposti in ordine decrescente di importanza*/
 
 section,article,header {
-  overflow:hidden; /*in questo modo se il contenuto aumenta, anche la section aumenta*/
+  overflow:visible; /*in questo modo se il contenuto aumenta, anche la section aumenta*/
 }
 
-/*cambia solo da 768px in su*/
-.content_section {
+section {
+  clear:both;
   padding-top: 50px;
-}
-
-.icon-bar {
-  background-color: white;
 }
 
 .brand-heading {
@@ -19,6 +15,18 @@ section,article,header {
 
 input {
   margin-top: 10px;
+}
+
+.lato {
+  display: inline-block;
+  position: relative;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
+  line-height: 20px;
+  font-weight: 400;
+  font-size: 20px;
+  letter-spacing: 1px;
+  font-family: 'Lato';
+  text-align:justify;
 }
 
 .ripetizioni li {
@@ -48,6 +56,11 @@ li.thumbnail.ripetizioni-listing.ng-scope {
 }
 
 /*navbar*/
+
+/*le stanghette del menù responsive sono bianche*/
+.icon-bar {
+  background-color: white;
+}
 
 .navbar-custom {
   margin-bottom: 0;
@@ -100,11 +113,6 @@ li.thumbnail.ripetizioni-listing.ng-scope {
   .navbar-custom.top-nav-collapse {
     border-bottom: 1px solid rgba(255,255,255,.3);
   }
-
-  /*Altrimenti la parte alta della sezione viene nascosta dal menù*/
-  .content_section {
-    padding-top: 50px;
-  }
 }
 
 /*header*/
@@ -145,6 +153,7 @@ li.thumbnail.ripetizioni-listing.ng-scope {
 
   .intro .intro-body .brand-heading {
     font-size: 100px;
+    margin-bottom:20px;
   }
 
   .intro .intro-body .intro-text {
@@ -170,15 +179,10 @@ li.thumbnail.ripetizioni-listing.ng-scope {
 }
 
 .subtitle {
-  display: inline-block;
-  position: relative;
   color: #ffffff;
-  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
   line-height: 30px;
-  font-weight: 400;
   font-size: 30px;
-  letter-spacing: 2px;
-  font-family: 'Lato';
+
 }
 
 /*FACEBOOK BUTTON*/
@@ -192,18 +196,33 @@ li.thumbnail.ripetizioni-listing.ng-scope {
 }
 
 .btn {
-  margin-bottom: 5px;
+  margin-top: 5px;
 }
 
-/*FOOTER CONTACT*/
-#developer {
-  padding: 50px;
-  display: inline-block;
-  position: relative;
-  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
-  line-height: 30px;
-  font-weight: 400;
-  font-size: 30px;
-  letter-spacing: 2px;
-  font-family: 'Lato';
+/*REGISTRATION*/
+
+.input-group-addon.primary {
+    color: rgb(255, 255, 255);
+    background-color: rgb(50, 118, 177);
+    border-color: rgb(40, 94, 142);
+}
+.input-group-addon.success {
+    color: rgb(255, 255, 255);
+    background-color: rgb(92, 184, 92);
+    border-color: rgb(76, 174, 76);
+}
+.input-group-addon.info {
+    color: rgb(255, 255, 255);
+    background-color: rgb(57, 179, 215);
+    border-color: rgb(38, 154, 188);
+}
+.input-group-addon.warning {
+    color: rgb(255, 255, 255);
+    background-color: rgb(240, 173, 78);
+    border-color: rgb(238, 162, 54);
+}
+.input-group-addon.danger {
+    color: rgb(255, 255, 255);
+    background-color: rgb(217, 83, 79);
+    border-color: rgb(212, 63, 58);
 }

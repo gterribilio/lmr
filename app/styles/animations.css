@@ -384,11 +384,11 @@ N.B. : i commenti css si fanno solo in questo modo, altrimenti spacco tutto!;
  -moz-border-radius:3px; -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); -webkit-border-radius:3px; -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); border-radius:3px; box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 }
 
-li.facebook { background-image:url('http://2.bp.blogspot.com/-uEHigx-ZdBk/Tu7CghQbd7I/AAAAAAAAASg/xukVyRfqk94/s1600/social_facebook.png'); }
-li.flickr { background-image:url('http://4.bp.blogspot.com/-KnealmRrmFY/Tu7CgkKZX7I/AAAAAAAAASs/RA9aeMOWaLY/s1600/social_flickr.png'); }
-li.linkedin { background-image:url('http://3.bp.blogspot.com/-hBPOdeYwJWE/Tu7Cg9xbBbI/AAAAAAAAAS4/ayfxXLJw1_s/s1600/social_linkedin.png'); }
-li.rss { background-image:url('http://4.bp.blogspot.com/-ABr3akhDst8/Tu7ChCTfU6I/AAAAAAAAATA/IwuF2fLvw9g/s1600/social_rss.png'); }
-li.twitter { background-image:url('http://2.bp.blogspot.com/-Sx05izey6SU/Tu7ChGyV5FI/AAAAAAAAATQ/UwcI3h-lAik/s1600/social_twitter.png'); }
+li.facebook { background-image:url('../images/social/social_facebook.png'); }
+li.flickr { background-image:url('../images/social/social_flickr.png'); }
+li.linkedin { background-image:url('../images/social/social_linkedin.png'); }
+li.rss { background-image:url('../images/social/social_rss.png'); }
+li.twitter { background-image:url('../images/social/social_twitter.png'); }
 
 /* SOCIAL ICONS - CSS3 */
 #css3:hover li { opacity:0.2; }
