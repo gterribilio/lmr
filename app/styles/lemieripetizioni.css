@@ -1,5 +1,27 @@
 /*Disposti in ordine decrescente di importanza*/
 
+
+/*reset di base*/
+ul,p {
+  -webkit-padding-start: 0px;
+  -webkit-padding-end: 0px;
+  -webkit-margin-before: 0px;
+  -webkit-margin-after: 0px;
+
+}
+
+.form-group {
+   margin-bottom: 5px; 
+}
+
+.help-inline, .help-block {
+    color: red;
+    font-size: 110%;
+    margin-left: 10px;
+}
+
+/*end reset di base*/
+
 section,article,header {
   overflow:visible; /*in questo modo se il contenuto aumenta, anche la section aumenta*/
 }
@@ -21,9 +43,9 @@ input {
   display: inline-block;
   position: relative;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
-  line-height: 20px;
+  line-height: 16px;
   font-weight: 400;
-  font-size: 20px;
+  font-size: 16px;
   letter-spacing: 1px;
   font-family: 'Lato';
   text-align:justify;

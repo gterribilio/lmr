@@ -9,11 +9,12 @@
  * Main module of the application.
  */
  var app = angular
- .module('lemieripetizioni3App',['ngRoute','ngAnimate','Services','DettRipetizioniCtrlModule','Animations','RicercaRipetizioniCtrlModule','angularDatepicker']);
+ .module('lemieripetizioni3App',['ngRoute','ngAnimate','Services','DettRipetizioniCtrlModule','LoginCtrlModule','Animations','IndexControllerCtrlModule','RicercaRipetizioniCtrlModule','angularDatepicker']);
 
  app.config(['$routeProvider', '$httpProvider', function($routeProvider,$httpProvider) {
  		$routeProvider.
- 		when('/', {templateUrl: 'views/ricerca_ripetizioni.html', controller: 'RicercaRipetizioniCtrl'}).
+ 		when('/ricerca_ripetizione', {templateUrl: 'views/ricerca_ripetizioni.html', controller: 'RicercaRipetizioniCtrl'}).
+ 		when('/login', {templateUrl: 'views/login.html', controller: 'LoginCtrl'}).
  		when('/ripetizione/:id', {templateUrl: 'views/dett_ripetizione.html', controller: 'DettRipetizioniCtrl'}).
  		otherwise({redirectTo: '/'});
  	}]);

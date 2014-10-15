@@ -6,7 +6,7 @@ $(function(){
        var height = $(this).height() - $header.height();
        $content.height(height);
        $('#map').height(height); /*setto anche l'altezza della mappa in questo modo*/
-     
+
     }).trigger('resize'); //on page load
 
 });
@@ -22,7 +22,7 @@ $(window).scroll(function() {
 
 // jQuery for page scrolling feature - requires jQuery Easing plugin
 $(function() {
-    $('a.page-scroll').bind('click', function(event) {
+    $('.page-scroll').bind('click', function(event) {
         var $anchor = $(this);
         $('html, body').stop().animate({
             scrollTop: $($anchor.attr('href')).offset().top
@@ -178,7 +178,7 @@ window.onload = loadScript;
 /*ANIMATION DEL FOOTER PER FADE IN - FADE - OUT*/
 $(window).scroll(function () {
     var y = $(window).scrollTop(),
-        x = $('.animated').offset().top - 200;
+    x = $('.animated').offset().top - 200;
     if (y > x) {
         $('.animated').addClass('fadeInUp').removeClass('fadeOutDown');
     } else {
@@ -186,46 +186,12 @@ $(window).scroll(function () {
     }
 });
 
-/*REGISTRATION*/
+function showStudente() {
+    $("#panel_studente").show();
+    $("#panel_docente").hide();
+}
 
-$(function() {   
-    $('input .input-group input[required], .input-group textarea[required], .input-group select[required]').on('keyup change', function() {
-        var $form = $(this).closest('form'),
-            $group = $(this).closest('.input-group'),
-            $addon = $group.find('.input-group-addon'),
-            $icon = $addon.find('span'),
-            state = false;
-            
-        if (!$group.data('validate')) {
-            state = $(this).val() ? true : false;
-        }else if ($group.data('validate') == "email") {
-            state = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/.test($(this).val())
-        }else if($group.data('validate') == 'phone') {
-            state = /^[(]{0,1}[0-9]{3}[)]{0,1}[-\s\.]{0,1}[0-9]{3}[-\s\.]{0,1}[0-9]{4}$/.test($(this).val())
-        }else if ($group.data('validate') == "length") {
-            state = $(this).val().length >= $group.data('length') ? true : false;
-        }else if ($group.data('validate') == "number") {
-            state = !isNaN(parseFloat($(this).val())) && isFinite($(this).val());
-        }
-
-        if (state) {
-                $addon.removeClass('danger');
-                $addon.addClass('success');
-                $icon.attr('class', 'glyphicon glyphicon-ok');
-        }else{
-                $addon.removeClass('success');
-                $addon.addClass('danger');
-                $icon.attr('class', 'glyphicon glyphicon-remove');
-        }
-        
-        if ($form.find('.input-group-addon.danger').length == 0) {
-            $form.find('[type="submit"]').prop('disabled', false);
-        }else{
-            $form.find('[type="submit"]').prop('disabled', true);
-        }
-    });
-    
-    $('.input-group input[required], .input-group textarea[required], .input-group select[required]').trigger('change');
-    
-    
-});
+function showDocente() {
+    $("#panel_studente").hide();
+    $("#panel_docente").show();
+}
