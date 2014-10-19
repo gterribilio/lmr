@@ -1,0 +1,87 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\\\node.exe',
+1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install',
+1 verbose cli   'local-storage-module' ]
+2 info using npm@1.4.9
+3 info using node@v0.10.28
+4 verbose node symlink C:\Program Files\nodejs\\node.exe
+5 warn package.json lemieripetizioni3@0.1.0 No description
+6 warn package.json lemieripetizioni3@0.1.0 No README data
+7 warn package.json angular-animate@1.2.23 No repository field.
+8 verbose readDependencies using package.json deps
+9 verbose cache add [ 'local-storage-module', null ]
+10 verbose cache add name=undefined spec="local-storage-module" args=["local-storage-module",null]
+11 verbose parsed url { protocol: null,
+11 verbose parsed url   slashes: null,
+11 verbose parsed url   auth: null,
+11 verbose parsed url   host: null,
+11 verbose parsed url   port: null,
+11 verbose parsed url   hostname: null,
+11 verbose parsed url   hash: null,
+11 verbose parsed url   search: null,
+11 verbose parsed url   query: null,
+11 verbose parsed url   pathname: 'local-storage-module',
+11 verbose parsed url   path: 'local-storage-module',
+11 verbose parsed url   href: 'local-storage-module' }
+12 silly lockFile 0d2a03d3-local-storage-module local-storage-module
+13 verbose lock local-storage-module C:\Users\Giuseppe\AppData\Roaming\npm-cache\0d2a03d3-local-storage-module.lock
+14 silly lockFile 0d2a03d3-local-storage-module local-storage-module
+15 silly lockFile 0d2a03d3-local-storage-module local-storage-module
+16 verbose addNamed [ 'local-storage-module', '' ]
+17 verbose addNamed [ null, '*' ]
+18 silly lockFile 2bba3476-local-storage-module local-storage-module@
+19 verbose lock local-storage-module@ C:\Users\Giuseppe\AppData\Roaming\npm-cache\2bba3476-local-storage-module.lock
+20 silly addNameRange { name: 'local-storage-module', range: '*', hasData: false }
+21 verbose url raw local-storage-module
+22 verbose url resolving [ 'https://registry.npmjs.org/', './local-storage-module' ]
+23 verbose url resolved https://registry.npmjs.org/local-storage-module
+24 info trying registry request attempt 1 at 23:44:56
+25 http GET https://registry.npmjs.org/local-storage-module
+26 http 404 https://registry.npmjs.org/local-storage-module
+27 verbose headers { date: 'Sun, 19 Oct 2014 21:45:00 GMT',
+27 verbose headers   server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+27 verbose headers   'content-type': 'application/json',
+27 verbose headers   'cache-control': 'max-age=0',
+27 verbose headers   'content-length': '52',
+27 verbose headers   'accept-ranges': 'bytes',
+27 verbose headers   via: '1.1 varnish',
+27 verbose headers   age: '0',
+27 verbose headers   'x-served-by': 'cache-fra1233-FRA',
+27 verbose headers   'x-cache': 'MISS',
+27 verbose headers   'x-cache-hits': '0',
+27 verbose headers   'x-timer': 'S1413755100.506312,VS0,VE107',
+27 verbose headers   'keep-alive': 'timeout=10, max=50',
+27 verbose headers   connection: 'Keep-Alive' }
+28 silly registry.get cb [ 404,
+28 silly registry.get   { date: 'Sun, 19 Oct 2014 21:45:00 GMT',
+28 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+28 silly registry.get     'content-type': 'application/json',
+28 silly registry.get     'cache-control': 'max-age=0',
+28 silly registry.get     'content-length': '52',
+28 silly registry.get     'accept-ranges': 'bytes',
+28 silly registry.get     via: '1.1 varnish',
+28 silly registry.get     age: '0',
+28 silly registry.get     'x-served-by': 'cache-fra1233-FRA',
+28 silly registry.get     'x-cache': 'MISS',
+28 silly registry.get     'x-cache-hits': '0',
+28 silly registry.get     'x-timer': 'S1413755100.506312,VS0,VE107',
+28 silly registry.get     'keep-alive': 'timeout=10, max=50',
+28 silly registry.get     connection: 'Keep-Alive' } ]
+29 silly lockFile 2bba3476-local-storage-module local-storage-module@
+30 silly lockFile 2bba3476-local-storage-module local-storage-module@
+31 error 404 404 Not Found: local-storage-module
+31 error 404
+31 error 404 'local-storage-module' is not in the npm registry.
+31 error 404 You should bug the author to publish it
+31 error 404 It was specified as a dependency of 'lemieripetizioni3'
+31 error 404
+31 error 404 Note that you can also install from a
+31 error 404 tarball, folder, or http url, or git url.
+32 error System Windows_NT 6.1.7601
+33 error command "C:\\Program Files\\nodejs\\\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" "local-storage-module"
+34 error cwd C:\Users\Giuseppe\Dropbox\angularjs\lemieripetizioni
+35 error node -v v0.10.28
+36 error npm -v 1.4.9
+37 error code E404
+38 verbose exit [ 1, true ]
