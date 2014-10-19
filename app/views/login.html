@@ -57,7 +57,7 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-sm-10">
-							<form name="userForm" ng-submit="register()" novalidate> <!--disabilito validazione html5-->
+							<form name="userForm" ng-submit="doRegister()" novalidate> <!--disabilito validazione html5-->
 								<!-- NAME -->
 								<div class="form-group row" ng-class="{ 'has-error' : userForm.nome.$invalid && !userForm.nome.$pristine }">
 									<label class="col-sm-4 hidden-xs control-label">Nome</label>

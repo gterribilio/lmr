@@ -54,6 +54,7 @@
               <li><a class="page-scroll" href="#area_prof">Area Prof</a></li>
               <li><a class="page-scroll" href="#chi_siamo">Chi siamo</a></li> <!--  class="active"></-->
               <li><a class="page-scroll" href="#contatti">Contatti</a></li>
+              <li ng-show="isLogged"><a class="page-scroll" ng-click="doLogout();" href="#page-top" data-toggle="tooltip" data-placement="bottom" title="Logout"><span class="glyphicon glyphicon-log-out"></span></a></li>
             </ul>
           </div><!-- /.navbar-collapse -->
         </div>
@@ -182,7 +183,6 @@
 
     <!-- Plugin JavaScript -->
     <script src="scripts/jquery.easing.min.js"></script>
-    <script src="scripts/controllers/indexcontroller.js"></script>
     <!-- endbuild -->
 
   </body>

@@ -10,11 +10,8 @@
 
  var ricerca = angular.module('RicercaRipetizioniCtrlModule', []);
 
- ricerca.controller('RicercaRipetizioniCtrl', ['$scope', '$rootScope', '$window', 'services', function ($scope, $rootScope, $window, services) {
-
-    /*Usare i persistent cookie*/
-
-    /*TODO capire dove mettere queste variabili della rootscope. Se messe in app.js ci sono problemi nella minificazione*/
+ ricerca.controller('RicercaRipetizioniCtrl', ['$scope', '$rootScope', '$window', 'services', 'localStorageService', '$location',
+  function ($scope, $rootScope, $window, services, localStorageService, $location) {
 
     $scope.ripetizioni = {};
     $scope.username = null;
@@ -25,13 +22,17 @@
     $scope.orada=null;
     $scope.oraa=null;
 
+    /*recupero questi dati dallo storage in modo da visualizzare correttamente il menù anche se faccio refresh della pagina*/
+    $rootScope.isLogged = localStorageService.get("isLogged");
+    $scope.userData = localStorageService.get("userData");
+
     $scope.doRicerca = function() {
 
         //alert($rootScope.userData.ID_ORDINE_SCUOLA+" " + $rootScope.userData.CITTA +" " + $scope.datada + " " + $scope.dataa + " " + $scope.orada
         //+ " " + $scope.oraa);
- services.getFromRESTServer("ord_scuola=" + $rootScope.userData.ID_ORDINE_SCUOLA + "&citta_filtro=" + $rootScope.userData.CITTA +
+services.getFromRESTServer("ord_scuola=" + $scope.userData.ID_ORDINE_SCUOLA + "&citta_filtro=" + $scope.userData.CITTA +
     "&datada=" + $scope.datada + "&dataa=" + $scope.dataa + "&orada=" + $scope.orada + "&oraa=" + $scope.oraa,"ricerca_custom").
- success(function (data) {
+success(function (data) {
     $scope.ripetizioni=data;
     $scope.msg=data.errMsg;
 });
@@ -39,7 +40,7 @@
 
     //devo usare rootscope siccome è esterno al controller RicercaRipetizioniCtrl
     $rootScope.doLeMieRipetizioni = function() {
-        services.getFromRESTServer("id_utente=2","ricerca_ripetizioni_prenotate").
+        services.getFromRESTServer("id_utente=" + $scope.userData.ID_UTENTE,"ricerca_ripetizioni_prenotate").
         success(function (data) {
             $scope.ripetizioniPrenotate=data;
             $scope.msg=data.errMsg;
@@ -52,5 +53,11 @@
         $scope.dataa=null;
         $scope.orada=null;
         $scope.oraa=null;
+    };
+
+    $rootScope.doLogout = function() {
+        localStorageService.clearAll();
+        $location.path("/");
+        $rootScope.isLogged = false;
     };
 }]);

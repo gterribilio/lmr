@@ -9,7 +9,7 @@
  * Main module of the application.
  */
  var app = angular
- .module('lemieripetizioni3App',['ngRoute','ngAnimate','Services','DettRipetizioniCtrlModule','LoginCtrlModule','Animations','IndexControllerCtrlModule','RicercaRipetizioniCtrlModule','angularDatepicker']);
+ .module('lemieripetizioni3App',['ngRoute','ngAnimate', 'Services','DettRipetizioniCtrlModule', 'LoginCtrlModule','Animations', 'RicercaRipetizioniCtrlModule','angularDatepicker', 'LocalStorageModule']);
 
  app.config(['$routeProvider', '$httpProvider', function($routeProvider,$httpProvider) {
  		$routeProvider.
