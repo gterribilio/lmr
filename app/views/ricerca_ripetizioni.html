@@ -12,14 +12,16 @@
 				<div class="col-sm-3 col-xs-5 col-xs-offset-1 col-md-offset-0" ng-class="{ 'has-error' : searchForm.datada.$invalid && !searchForm.datada.$pristine}">
 					<input type="text" datepicker="" name="datada" ng-model="datada" class="form-control" placeholder="dal giorno" ng-pattern="/^((\d{4})-(\d{2})-(\d{2}))$/">
 				</div>
-				<span ng-show="searchForm.datada.$error.pattern" class="help-block">La data deve essere nel formato YYYY-MM-GG</span>
 				<label for="dataa" class="col-sm-2 hidden-xs control-label">Al: </label>
 				<div class="col-sm-3 col-xs-5" ng-class="{ 'has-error' : searchForm.dataa.$invalid && !searchForm.dataa.$pristine}">
 					<input type="text" datepicker="" name="dataa" ng-model="dataa" class="form-control" placeholder="al giorno" ng-pattern="/^((\d{4})-(\d{2})-(\d{2}))$/">
 				</div>
-				<span ng-show="searchForm.dataa.$error.pattern" class="help-block">La data deve essere nel formato YYYY-MM-GG</span>
+				
 			</div>
+			
 		</div>
+		<span ng-show="searchForm.datada.$error.pattern" class="help-block">La data DA deve essere nel formato YYYY-MM-GG</span>
+		<span ng-show="searchForm.dataa.$error.pattern" class="help-block">La data A deve essere nel formato YYYY-MM-GG</span>
 		<div class="row">
 			<div class="col-lg-8 col-lg-offset-2 text-center">
 				<h3>In che orario?</h3>
@@ -32,14 +34,16 @@
 				<div class="col-sm-3 col-xs-5 col-xs-offset-1 col-md-offset-0" ng-class="{ 'has-error' : searchForm.orada.$invalid && !searchForm.orada.$pristine}">
 					<input type="time" ng-model="orada" name="orada" class="form-control" placeholder="dall'ora" ng-pattern="/^([01]?[0-9]|2[0-3]):[0-5][0-9]$/">
 				</div>
-				<span ng-show="searchForm.orada.$error.pattern" class="help-block">L'ora deve essere nel formato HH:mm</span>
+				
 				<label for="oraa" class="col-sm-2 hidden-xs control-label">Alle: </label>
 				<div class="col-sm-3 col-xs-5" ng-class="{ 'has-error' : searchForm.oraa.$invalid && !searchForm.oraa.$pristine}">
 					<input type="time" ng-model="oraa" name="oraa" class="form-control" placeholder="all'ora" ng-pattern="/^([01]?[0-9]|2[0-3]):[0-5][0-9]$/">
 				</div>
-				<span ng-show="searchForm.oraa.$error.pattern" class="help-block">L'ora deve essere nel formato HH:mm</span>
+				
 			</div>
-		</div>          
+		</div>
+		<span ng-show="searchForm.orada.$error.pattern" class="help-block">L'ora DA deve essere nel formato HH:mm</span>
+		<span ng-show="searchForm.oraa.$error.pattern" class="help-block">L'ora A deve essere nel formato HH:mm</span>          
 		<div class="row">
 			<div class="form-group" style="margin-top:20px;">			
 				<button class="btn btn-lg btn-primary col-xs-4 col-xs-offset-4 col-md-3 col-md-offset-3" ng-click="doReset();">
