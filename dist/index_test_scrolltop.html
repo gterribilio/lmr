@@ -1,0 +1,20 @@
+<!doctype html> <html> <head> <title>Prova scrolltop</title> <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css"> <link rel="stylesheet" href="styles/jquery-ui.css">  <body data-spy="scroll" data-target=".navbar .navbar-default .navbar-fixed-top"> <style>html {
+		position: relative;
+	}</style> <nav class="navbar navbar-default navbar-fixed-top" role="navigation"> <div class="container"> <ul class="nav navbar-nav"> <li class="active"><a href="#1">Link1</a></li> <li><a href="#2">Link2</a></li> <li><a href="#3">Link2</a></li> <li><a href="#4">Link2</a></li> </ul> </div> </nav> <section id="1" style="height:100vh;background-color:red"></section> <section id="2" style="height:100vh;background-color:blue"></section> <section id="3" style="height:100vh;background-color:orange"></section> <section id="4" style="height:100vh;background-color:black"></section> <script src="../bower_components/jquery/dist/jquery.js"></script> <script src="../bower_components/bootstrap/dist/js/bootstrap.js"></script> <script src="scripts/jquery.easing.min.js"></script> <script type="text/javascript">$('[data-spy="scroll"]').each(function () {
+		var $spy = $(this).scrollspy('refresh')
+	})
+
+	$(function() {
+		$('a[href*=#]:not([href=#])').click(function() {
+			if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+				var target = $(this.hash);
+				target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+				if (target.length) {
+					$('html,body').animate({
+						scrollTop: target.offset().top
+					}, 1000);
+					return false;
+				}
+			}
+		});
+	});</script>  
