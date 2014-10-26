@@ -1,5 +1,8 @@
 /*Disposti in ordine decrescente di importanza*/
 
+html {
+  position: relative;
+}
 
 /*reset di base*/
 ul,p {
@@ -28,7 +31,12 @@ section,article,header {
 
 section {
   clear:both;
-  padding-top: 50px;
+  height:100vh;
+  padding-top:50px;
+}
+
+#map {
+  height:400px;
 }
 
 .brand-heading {
@@ -142,8 +150,6 @@ li.thumbnail.ripetizioni-listing.ng-scope {
 .intro {
   display: table;
   width: 100%;
-  height: auto;
-  padding: 100px 0;
   text-align: center;
   color: #fff;
   background: url(../images/collage.jpg) no-repeat bottom center scroll;
@@ -168,11 +174,7 @@ li.thumbnail.ripetizioni-listing.ng-scope {
 }
 
 @media(min-width:767px) {
-  .intro {
-    height: 100%;
-    padding: 0;
-  }
-
+ 
   .intro .intro-body .brand-heading {
     font-size: 100px;
     margin-bottom:20px;
@@ -248,3 +250,5 @@ li.thumbnail.ripetizioni-listing.ng-scope {
     background-color: rgb(217, 83, 79);
     border-color: rgb(212, 63, 58);
 }
+
+.multiLabel {margin:0px;}

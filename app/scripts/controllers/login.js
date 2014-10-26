@@ -14,16 +14,13 @@ dett.controller('LoginCtrl',  ['$scope', '$rootScope', '$window', 'services', '$
         $rootScope.showLeMieRipetizioni=false;
 
       $scope.doAccedi= function() {
-        if($scope.username == "" || $scope.password == "") {alert('Devi inserire username e password per accedere al Portale!'); return false;} 
-        //viene lanciato quando faccio submit
         services.getFromRESTServer("username="+$scope.username+"&password="+$scope.password,"login").
         success(function (data) {
             if(data.jsonError != null || data.errCode != null)
             {
                 alert (data.errMsg);
             }
-            else { 
-                alert('Benvenuto ' + data[0].NOME);
+            else {
 
                 $rootScope.isLogged = true;
                 localStorageService.set("isLogged",true);
@@ -41,35 +38,25 @@ dett.controller('LoginCtrl',  ['$scope', '$rootScope', '$window', 'services', '$
     } //end doAccedi
 
     $scope.doRegister = function() {
-        //li passo tutti in GET
-        alert("username="+$scope.username+"&password="+$scope.password+"&professione="+$scope.professione+"&nome="+$scope.nome+
+        //passo tutti in GET con JSONP
+        services.getFromRESTServer(
+            "username="+$scope.username+"&password="+$scope.password+"&professione="+$scope.professione+"&nome="+$scope.nome+
             "&cognome="+$scope.cognome+"&dataNascita="+$scope.datanascita+"&codiceFiscale="+$scope.codicefiscale+"&email="+$scope.email+
-            "&citta="+$scope.citta+"&indirizzoCasa="+$scope.indirizzocasa+"&lat="+"123"+"&long="+"456");
-        alert("STUDENTE--->&radio-choice="+$scope.scuola+"&nomeScuolaFrequentata="+$scope.nomeScuolaFrequentata+"&indirizzoScuolaFrequentata="+
-            $scope.indirizzoScuolaFrequentata);
-        alert("DOCENTE--->&occupazione="+$scope.occupazione+"&indirizzoScuolaInsegna="+$scope.indirizzoScuolaInsegna+
-            "&indirizzoUfficio="+scope.indirizzoUfficio);
-        // services.getFromRESTServer("username="+$scope.username+"&password="+$scope.password,"register").
-        // success(function (data) {
-        //     if(data.jsonError != null || data.errCode != null)
-        //     {
-        //         alert (data.errMsg);
-        //     }
-        //     else { 
-        //         alert('Benvenuto ' + data[0].NOME);
-
-        //         $rootScope.isLogged = true;
-        //         localStorageService.set("isLogged",true);
-                
-        //         $rootScope.showLogin=false;
-        //         $rootScope.userData=data[0];
-        //         localStorageService.set("userData",JSON.stringify($rootScope.userData));
-
-        //         $location.path("/ricerca_ripetizione");
-
-        //     }
-        //     //stampa il JSON Object
-        //     //alert(JSON.stringify(data));
-        // });
+            "&citta="+$scope.citta+"&indirizzoCasa="+$scope.indirizzocasa+"&lat="+"123"+"&long="+"456"+
+            /*STUDENTE*/
+            "&radio-choice="+$scope.scuola+"&nomeScuolaFrequentata="+$scope.nomeScuolaFrequentata+"&indirizzoScuolaFrequentata="+
+            $scope.indirizzoScuolaFrequentata+
+            /*DOCENTE*/
+            "&occupazione="+$scope.occupazione+"&indirizzoScuolaInsegna="+$scope.indirizzoScuolaInsegna+
+            "&indirizzoUfficio="+$scope.indirizzoUfficio,"register").
+        success(function (data) {
+            if(data.jsonError != null || data.errCode != null)
+            {
+                $('#username_present_modal').modal('show');
+            }
+            else {
+                $scope.doAccedi();
+            }
+        });
     }
 }]);

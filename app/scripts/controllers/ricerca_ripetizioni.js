@@ -14,6 +14,7 @@
   function ($scope, $rootScope, $window, services, localStorageService, $location) {
 
     $scope.ripetizioni = {};
+    $scope.my_materia = null;
     $scope.username = null;
     $scope.password = null;
 
@@ -26,12 +27,25 @@
     $rootScope.isLogged = localStorageService.get("isLogged");
     $scope.userData = localStorageService.get("userData");
 
-    $scope.doRicerca = function() {
+    //mostro il modal di benvenuto dopo aver fatto login o register
+    $('#welcome_modal').modal('show');
 
+    //tiro su la codetable delle materie
+    services.getCodeTable("codetable=MATERIA").success(function (data){
+        //alert(JSON.stringify(data));
+        $scope.materie=data;
+        //aggiungo un dummy all'inizio della lista in modo tale da permettere di non selezionare niente per questo campo
+        $scope.materie[0]=null;
+    });
+
+    /*DICHIARAZIONE DELLE FUNZIONI*/
+
+    $scope.doRicerca = function() {
         //alert($rootScope.userData.ID_ORDINE_SCUOLA+" " + $rootScope.userData.CITTA +" " + $scope.datada + " " + $scope.dataa + " " + $scope.orada
         //+ " " + $scope.oraa);
+        var temp_materia = ($scope.my_materia===null) ? null : $scope.my_materia.ID_MATERIA;
 services.getFromRESTServer("ord_scuola=" + $scope.userData.ID_ORDINE_SCUOLA + "&citta_filtro=" + $scope.userData.CITTA +
-    "&datada=" + $scope.datada + "&dataa=" + $scope.dataa + "&orada=" + $scope.orada + "&oraa=" + $scope.oraa,"ricerca_custom").
+    "&datada=" + $scope.datada + "&dataa=" + $scope.dataa + "&orada=" + $scope.orada + "&oraa=" + $scope.oraa + "&materia="+temp_materia,"ricerca_custom").
 success(function (data) {
     $scope.ripetizioni=data;
     $scope.msg=data.errMsg;
@@ -53,6 +67,7 @@ success(function (data) {
         $scope.dataa=null;
         $scope.orada=null;
         $scope.oraa=null;
+        $scope.my_materia=null;
     };
 
     $rootScope.doLogout = function() {

@@ -9,5 +9,8 @@ services
         /*alert("msg: "+msg);*/
         return $http.jsonp("http://lemieripetizioni.altervista.org/JSONEngine.php?callback=JSON_CALLBACK&action="+callback+"&"+msg);
     }
+    service.getCodeTable = function(msg, callback) {
+    	return $http.jsonp("http://lemieripetizioni.altervista.org/JSONEngine.php?callback=JSON_CALLBACK&action=get_codetable&"+msg);
+    }
     return service;
 }]);

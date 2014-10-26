@@ -1,16 +1,3 @@
-/*setto l'altezza delle sezioni come differenza tra viewport e header*/
-$(function(){
-    var $header = $('#navigation-bar');
-    var $content = $("section");
-    var $window = $(window).on('resize', function(){
-       var height = $(this).height() - $header.height();
-       $content.height(height);
-       $('#map').height(height); /*setto anche l'altezza della mappa in questo modo*/
-
-    }).trigger('resize'); //on page load
-
-});
-
 // jQuery to collapse the navbar on scroll
 $(window).scroll(function() {
     if ($(".navbar").offset().top > 50) {
@@ -20,20 +7,28 @@ $(window).scroll(function() {
     }
 });
 
-// jQuery for page scrolling feature - requires jQuery Easing plugin
+// jQuery scrollTop
+//refresh dello scrollspy se si aggiungono o tolgono parti dal DOM (vedi scrollspy dal sito di bootstrap)
+$('[data-spy="scroll"]').each(function () {
+    var $spy = $(this).scrollspy('refresh')
+})
 
-
-$('.page-scroll').click(function(e){
-     e.preventDefault();
-    var top = $('body').find($(this).attr('href')).offset().top;
-    $('html, body').animate({
-        scrollTop: top
-    },500, 'easeOutExpo');
-
-    return false;
+$(function() {
+    $('a[href*=#]:not([href=#])').click(function() {
+        if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+            var target = $(this.hash);
+            target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+            if (target.length) {
+                $('html,body').animate({
+                    scrollTop: target.offset().top
+                }, 1000);
+                return false;
+            }
+        }
+    });
 });
-// Closes the Responsive page-top on page-top Item Click
 
+// Closes the Responsive page-top on page-top Item Click
 $('.navbar-collapse ul li a').click(function() {
     $('.navbar-toggle:visible').click();
 });

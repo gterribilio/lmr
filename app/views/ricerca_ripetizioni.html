@@ -1,3 +1,22 @@
+<!-- Modal Panel Welcome -->
+<div class="modal fade bs-example-modal-lg" id="welcome_modal" tabindex="-1" role="dialog"
+aria-labelledby="myLargeModalLabel" aria-hidden="true">
+<div class="modal-dialog modal-lg">
+	<div class="modal-content">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+			<h4 class="modal-title" id="myModalLabel">Benvenuto!</h4>
+		</div>
+		<div class="modal-body">
+			Benvenuto {{userData.NOME}}! Accedi subito dal menù a tutte le funzioni e trova la tua ripetizione!
+		</div>
+		<div class="modal-footer">
+			<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		</div>
+	</div>
+</div>
+</div>
+
 <section id="ricerca_ripetizione" ng-show="isLogged && showRicercaRipetizioni" style="height:100vh;"><!--devo settare mannualmente l'altezza di questo div in quanto lo script non lo vede-->
 	<form name="searchForm" role="form" class="form-horizontal" novalidate>
 		<button type="button" class="close" ng-click="$parent.showRicercaRipetizioni=false;"><span aria-hidden="true" class="glyphicon glyphicon-remove-circle"></span><span class="sr-only">Close</span></button>
@@ -44,15 +63,31 @@
 		</div>
 		<span ng-show="searchForm.orada.$error.pattern" class="help-block">L'ora DA deve essere nel formato HH:mm</span>
 		<span ng-show="searchForm.oraa.$error.pattern" class="help-block">L'ora A deve essere nel formato HH:mm</span>          
+		
+		<div class="row">
+			<div class="col-lg-8 col-lg-offset-2 text-center">
+				<h3>Di quale materia?</h3>
+			</div>
+		</div>
+		<div class="row">
+			<div class="form-group">
+				<label for="materia" class="col-sm-2 hidden-xs control-label">Materia: </label>
+				<div class="col-sm-3 col-xs-8 col-xs-offset-2 col-md-offset-0" >
+					<select class="form-control" name="materia" ng-model="my_materia" ng-options="materia.DESCRIZIONE for materia in materie"></select>
+				</div>				
+			</div>		
+		</div>
+
 		<div class="row">
 			<div class="form-group" style="margin-top:20px;">			
 				<button class="btn btn-lg btn-primary col-xs-4 col-xs-offset-4 col-md-3 col-md-offset-3" ng-click="doReset();">
-					Pulisci</button>
-					<button class="btn btn-lg btn-primary col-xs-4 col-xs-offset-4 col-md-3 col-md-offset-1" autofocus ng-click="doRicerca();">Ricerca</button>
-				</div>	
-			</div>  		
-		</form>
-
+					Pulisci
+				</button>
+				<button class="btn btn-lg btn-primary col-xs-4 col-xs-offset-4 col-md-3 col-md-offset-1" autofocus ng-click="doRicerca();">Ricerca</button>
+			</div>	
+		</div>  		
+	</form>
+	<div class="row">
 		<div id="ripetizioni_list" class="col-md-8 col-md-offset-2" style="margin-top:60px;">
 			<div ng-if="ripetizioni.length !=0">						
 				<ul class="ripetizioni">
@@ -65,15 +100,15 @@
 				</ul>
 			</div>
 		</div>
-
-
+	</div>
+	<div class="row">
 		<div ng-if="ripetizioni.length == 0" class="text-center">
-			<p>Cerca subito la ripetizione per te!</p>
+			<p>Al momento non ci sono ripetizioni disponibili per questa ricerca! Possiamo aiutarti in qualche modo?</p>
 		</div>
 	</div>
 </section>
 
-<section id="lemieripetizioni" ng-show="showLeMieRipetizioni" style="height:100vh;"><!--devo settare mannualmente l'altezza di questo div in quanto lo script non lo vede-->
+<section id="lemieripetizioni" ng-show="isLogged && showLeMieRipetizioni" style="height:100vh;"><!--devo settare mannualmente l'altezza di questo div in quanto lo script non lo vede-->
 	<button type="button" class="close" ng-click="$parent.showLeMieRipetizioni=false;"><span aria-hidden="true" class="glyphicon glyphicon-remove-circle"></span><span class="sr-only">Close</span></button>
 	<h2>Le mie ripetizioni</h2>
 	<div id="ripetizioniPrenotate_list" class="col-md-8 col-md-offset-2" style="margin-top:60px;">
@@ -81,7 +116,7 @@
 			<ul class="ripetizioni">
 				<li ng-repeat="ripetizione in ripetizioniPrenotate" class="thumbnail ripetizioni-listing">
 					<a href="" class="thumb"><img src="images/logo.png"></a>
-					<p>DOCENTE: <a href="#/ripetizione/{{ripetizione.ID_RIPETIZIONE}}">{{ripetizione.COGN_PROF}} {{ripetizione.NOME_PROF}}</a></p>
+					<p>DOCENTE: <a ng-href="#/ripetizione/{{ripetizione.ID_RIPETIZIONE}}?scrollTo=dettaglio_ripetizione">{{ripetizione.COGN_PROF}} {{ripetizione.NOME_PROF}}</a></p>
 					<p>QUANDO: {{ripetizione.DATA}}</p>
 					<p>DALLE: {{ripetizione.ORA_INIZIO}} ALLE: {{ripetizione.ORA_FINE}}</p>
 				</li>
