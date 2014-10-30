@@ -10,8 +10,8 @@
 
  var ricerca = angular.module('RicercaRipetizioniCtrlModule', []);
 
- ricerca.controller('RicercaRipetizioniCtrl', ['$scope', '$rootScope', '$window', 'services', 'localStorageService', '$location',
-  function ($scope, $rootScope, $window, services, localStorageService, $location) {
+ ricerca.controller('RicercaRipetizioniCtrl', ['$scope', '$rootScope', '$window', 'services', 'localStorageService', '$location', '$anchorScroll',
+  function ($scope, $rootScope, $window, services, localStorageService, $location, $anchorScroll) {
 
     $scope.ripetizioni = {};
     $scope.my_materia = null;
@@ -27,8 +27,10 @@
     $rootScope.isLogged = localStorageService.get("isLogged");
     $scope.userData = localStorageService.get("userData");
 
-    //mostro il modal di benvenuto dopo aver fatto login o register
-    $('#welcome_modal').modal('show');
+     $scope.scrollTo = function(id) {
+      $location.hash(id);
+      $anchorScroll();
+   }
 
     //tiro su la codetable delle materie
     services.getCodeTable("codetable=MATERIA").success(function (data){

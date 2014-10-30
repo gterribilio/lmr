@@ -1,22 +1,3 @@
-<!-- Modal Panel Username Presente -->
-<div class="modal fade bs-example-modal-lg" id="username_present_modal" tabindex="-1" role="dialog" 
-aria-labelledby="myLargeModalLabel" aria-hidden="true">
-<div class="modal-dialog modal-lg">
-	<div class="modal-content">
-		<div class="modal-header">
-			<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-			<h4 class="modal-title" id="myModalLabel">Username già presente!</h4>
-		</div>
-		<div class="modal-body">
-			Ci dispiace ma questo username è già presente... prova ad inserirne un altro!
-		</div>
-		<div class="modal-footer">
-			<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-		</div>
-	</div>
-</div>
-</div>
-
 <section id="login" ng-show="showLogin" style="height:100vh;"><!--devo settare mannualmente l'altezza di questo div in quanto lo script non lo vede-->
 	<!--al termine di ogni action onclick bisogna inserire return false, che equivale a event.preventDefault. In questo modo quando
 	faccio a href="#" non viene utilizzato il plugin scrollTop e-->
@@ -30,7 +11,7 @@ aria-labelledby="myLargeModalLabel" aria-hidden="true">
 				<div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
 				<form id="loginform" class="form-horizontal" role="form">
 					<div style="margin-bottom: 25px" class="input-group">
-						<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+						<span class="input-group-addon glyphicon glyphicon-user"></span>
 						<input id="login-username" ng-model="username" type="text" class="form-control" placeholder="username">
 					</div>
 					<div style="margin-bottom: 25px" class="input-group">
@@ -66,11 +47,13 @@ aria-labelledby="myLargeModalLabel" aria-hidden="true">
 			</div>                     
 		</div>  
 	</div>
-	<div id="signupbox" style="display:none; margin-top:10px;" class="mainbox col-md-6 col-md-offset-3 col-xs-12">
+	<div id="signupbox" style="display:none; margin-top:10px;" class="mainbox col-md-8 col-md-offset-2 col-xs-12">
 		<div class="panel panel-info">
 			<div class="panel-heading">
 				<div class="panel-title">Registrati</div>
-				<div style="float:right; font-size: 85%; position: relative; top:-10px"><a id="signinlink" href="#" onclick="$('#signupbox').hide(); $('#loginbox').show(); return false;">Accedi</a></div>
+				<div style="float:right; font-size: 85%; position: relative; top:-10px">
+					<a id="signinlink" href="#" onclick="$('#signupbox').hide(); $('#loginbox').show(); return false;">Accedi</a>
+				</div>
 			</div>  
 			<div class="panel-body cointainer row" >
 				
@@ -190,8 +173,9 @@ aria-labelledby="myLargeModalLabel" aria-hidden="true">
 										<label class="col-sm-12 control-label">Che scuola frequenti?*</label>
 									</div>
 									<div class="form-group row" ng-class="{ 'has-error' : userForm.scuola.$invalid && !userForm.scuola.$pristine && 
-									professione=='STUDENTE'}"> <!--TODO DA TESTARE-->
-									<input type="hidden" name="scuola" value="" ng-model="scuola" id="scuola" required/>
+									professione=='STUDENTE'}"> 
+									<!--TODO DA TESTARE-->
+									<input type="hidden" name="scuola" value="" ng-model="scuola" id="scuola" required />
 								</div>
 								<div class="btn-group" data-toggle="buttons-radio">  
 									<button id="elementari" type="button" data-toggle="button" ng-click="scuola='1'" name="option1" value="1" class="btn btn-lg btn-default">Elementari</button>
@@ -202,9 +186,9 @@ aria-labelledby="myLargeModalLabel" aria-hidden="true">
 								<p ng-show="userForm.scuola.$invalid && !userForm.scuola.$pristine" class="help-block">Il campo è obbligatorio</p>
 
 								<!-- Scuola Frequentata -->
-								<div class="form-group row">
+								<div class="form-group row" style="margin-top:15px;">
 									<label class="col-sm-2 hidden-xs control-label">Nome scuola</label>
-									<div class="col-sm-6 col-xs-11">
+									<div class="col-sm-5 col-xs-11">
 										<input type="text" name="nomeScuolaFrequentata" class="form-control" ng-model="nomeScuolaFrequentata" placeholder="Nome Scuola Frequentata">
 									</div>
 								</div>
@@ -212,7 +196,7 @@ aria-labelledby="myLargeModalLabel" aria-hidden="true">
 								<!-- Indirizzo Scuola Frequentata -->
 								<div class="form-group row">
 									<label class="col-sm-2 hidden-xs control-label">Indirizzo scuola</label>
-									<div class="col-sm-6 col-xs-11">
+									<div class="col-sm-5 col-xs-11">
 										<input type="text" name="nomeScuolaFrequentata" class="form-control" ng-model="indirizzoScuolaFrequentata" placeholder="Indirizzo Scuola Frequentata">
 									</div>
 								</div>
@@ -250,7 +234,7 @@ aria-labelledby="myLargeModalLabel" aria-hidden="true">
 								</div>
 
 								<!-- Indirizzo Scuola Dove insegni -->
-								<div class="form-group row">
+								<div class="form-group row" style="margin-top:15px;">
 									<label class="col-sm-2 hidden-xs control-label">Indirizzo scuola<br/>dove insegni</label>
 									<div class="col-sm-6 col-xs-11">
 										<input type="text" name="indirizzoScuolaInsegna" class="form-control" ng-model="indirizzoScuolaInsegna" placeholder="Indirizzo Scuola dove insegni">

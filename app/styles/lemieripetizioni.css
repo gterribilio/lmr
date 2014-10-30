@@ -43,10 +43,6 @@ section {
   font-family: 'Architects Daughter', cursive;
 }
 
-input {
-  margin-top: 10px;
-}
-
 .lato {
   display: inline-block;
   position: relative;
@@ -252,3 +248,11 @@ li.thumbnail.ripetizioni-listing.ng-scope {
 }
 
 .multiLabel {margin:0px;}
+
+form {
+    font-size: 14px;
+}
+
+form .glyphicon {
+    top: 0;
+}

@@ -9,6 +9,7 @@ $(window).scroll(function() {
 
 // jQuery scrollTop
 //refresh dello scrollspy se si aggiungono o tolgono parti dal DOM (vedi scrollspy dal sito di bootstrap)
+
 $('[data-spy="scroll"]').each(function () {
     var $spy = $(this).scrollspy('refresh')
 })
@@ -171,6 +172,7 @@ function loadScript() {
 window.onload = loadScript;
 
 /*END GOOGLE MAPS SCRIPTS*/
+
 
 /*ANIMATION DEL FOOTER PER FADE IN - FADE - OUT*/
 $(window).scroll(function () {

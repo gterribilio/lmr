@@ -31,6 +31,8 @@ dett.controller('LoginCtrl',  ['$scope', '$rootScope', '$window', 'services', '$
 
                 $location.path("/ricerca_ripetizione");
 
+                alert("Benvenuto " + $rootScope.userData.NOME +"! Accedi subito dal menù a tutte le funzioni e trova la tua ripetizione!");
+
             }
             //stampa il JSON Object
             //alert(JSON.stringify(data));
@@ -52,7 +54,7 @@ dett.controller('LoginCtrl',  ['$scope', '$rootScope', '$window', 'services', '$
         success(function (data) {
             if(data.jsonError != null || data.errCode != null)
             {
-                $('#username_present_modal').modal('show');
+              alert (data.errMsg);
             }
             else {
                 $scope.doAccedi();
