@@ -1,6 +1,6 @@
-$(document).ready(function() {
-   fixHeight();
-});
+window.addEventListener("resize", function() {
+    fixHeight();
+}, false);
 
 function fixHeight()
 {
