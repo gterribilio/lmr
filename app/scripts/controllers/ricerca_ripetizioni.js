@@ -14,6 +14,7 @@
   function ($scope, $rootScope, $window, services, localStorageService, $location, $anchorScroll) {
 
     $scope.ripetizioni = {};
+    $scope.ripetizioniPrenotate = {};
     $scope.my_materia = null;
     $scope.username = null;
     $scope.password = null;
@@ -26,11 +27,6 @@
     /*recupero questi dati dallo storage in modo da visualizzare correttamente il menù anche se faccio refresh della pagina*/
     $rootScope.isLogged = localStorageService.get("isLogged");
     $scope.userData = localStorageService.get("userData");
-
-     $scope.scrollTo = function(id) {
-      $location.hash(id);
-      $anchorScroll();
-   }
 
     //tiro su la codetable delle materie
     services.getCodeTable("codetable=MATERIA").success(function (data){
@@ -45,7 +41,7 @@
     $scope.doRicerca = function() {
         //alert($rootScope.userData.ID_ORDINE_SCUOLA+" " + $rootScope.userData.CITTA +" " + $scope.datada + " " + $scope.dataa + " " + $scope.orada
         //+ " " + $scope.oraa);
-        var temp_materia = ($scope.my_materia===null) ? null : $scope.my_materia.ID_MATERIA;
+var temp_materia = ($scope.my_materia===null) ? null : $scope.my_materia.ID_MATERIA;
 services.getFromRESTServer("ord_scuola=" + $scope.userData.ID_ORDINE_SCUOLA + "&citta_filtro=" + $scope.userData.CITTA +
     "&datada=" + $scope.datada + "&dataa=" + $scope.dataa + "&orada=" + $scope.orada + "&oraa=" + $scope.oraa + "&materia="+temp_materia,"ricerca_custom").
 success(function (data) {
@@ -53,15 +49,6 @@ success(function (data) {
     $scope.msg=data.errMsg;
 });
     } //end doRicerca
-
-    //devo usare rootscope siccome è esterno al controller RicercaRipetizioniCtrl
-    $rootScope.doLeMieRipetizioni = function() {
-        services.getFromRESTServer("id_utente=" + $scope.userData.ID_UTENTE,"ricerca_ripetizioni_prenotate").
-        success(function (data) {
-            $scope.ripetizioniPrenotate=data;
-            $scope.msg=data.errMsg;
-        });
-    } //end doLeMieRipetizioni
 
     //cancella il form
     $scope.doReset = function() {
@@ -72,9 +59,13 @@ success(function (data) {
         $scope.my_materia=null;
     };
 
-    $rootScope.doLogout = function() {
-        localStorageService.clearAll();
-        $location.path("/");
-        $rootScope.isLogged = false;
-    };
+//devo usare rootscope siccome è esterno al controller RicercaRipetizioniCtrl
+
+$rootScope.doLeMieRipetizioni = function() {
+    services.getFromRESTServer("id_utente=" + $scope.userData.ID_UTENTE,"ricerca_ripetizioni_prenotate").
+    success(function (data) {
+        $scope.ripetizioniPrenotate=data;
+        $scope.msg=data.errMsg;
+    });
+} //end doLeMieRipetizioni
 }]);

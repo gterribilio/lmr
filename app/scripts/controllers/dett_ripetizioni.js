@@ -13,8 +13,13 @@ Lo indico solo in app.js */
 
 var dett = angular.module('DettRipetizioniCtrlModule', []);
 
-dett.controller('DettRipetizioniCtrl', [ '$scope', '$routeParams', '$location', 'services', function ($scope, $routeParams, $location, services) {
+dett.controller('DettRipetizioniCtrl', [ '$scope','$rootScope', '$routeParams', '$location', 'services','localStorageService' , function ($scope, $rootScope, $routeParams, $location, services, localStorageService) {
+
+    $rootScope.showRicercaRipetizioni=false;
+    $rootScope.showLeMieRipetizioni=false;
+
     $scope.id_ripetizione = $routeParams.id;
+        $scope.userData = localStorageService.get("userData");
 
     services.getFromRESTServer("id_ripe="+$scope.id_ripetizione,"dettaglio_ripetizione").success(function (response) {
 
@@ -29,7 +34,7 @@ dett.controller('DettRipetizioniCtrl', [ '$scope', '$routeParams', '$location', 
         if(conf == true) {
             //viene lanciato quando faccio submit di prenota ripetizione
             //forzo come utente per prenotare la ripetizione l'utente con id=2
-            services.getFromRESTServer("id_rip="+$scope.id_ripetizione+"&my_id=2","prenotazione").
+            services.getFromRESTServer("id_rip="+$scope.id_ripetizione+"&my_id="+$scope.userData.ID_UTENTE,"prenotazione").
             success(function (data) {
                 alert("Prenotazione effettuata correttamente!");
                 $location.path("/");

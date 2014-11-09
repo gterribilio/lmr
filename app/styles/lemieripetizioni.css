@@ -14,13 +14,13 @@ ul,p {
 }
 
 .form-group {
-   margin-bottom: 5px; 
+ margin-bottom: 5px; 
 }
 
 .help-inline, .help-block {
-    color: red;
-    font-size: 110%;
-    margin-left: 10px;
+  color: red;
+  font-size: 110%;
+  margin-left: 10px;
 }
 
 /*end reset di base*/
@@ -30,9 +30,11 @@ section,article,header {
 }
 
 section {
+  padding-top:60px;
+  float:left;
   clear:both;
-  height:100vh;
-  padding-top:50px;
+  width:100%;
+  background-image:url('../images/noise.png');
 }
 
 #map {
@@ -146,7 +148,6 @@ li.thumbnail.ripetizioni-listing.ng-scope {
 .intro {
   display: table;
   width: 100%;
-  text-align: center;
   color: #fff;
   background: url(../images/collage.jpg) no-repeat bottom center scroll;
   background-color: #000;
@@ -170,7 +171,7 @@ li.thumbnail.ripetizioni-listing.ng-scope {
 }
 
 @media(min-width:767px) {
- 
+
   .intro .intro-body .brand-heading {
     font-size: 100px;
     margin-bottom:20px;
@@ -191,6 +192,7 @@ li.thumbnail.ripetizioni-listing.ng-scope {
   outline: 0;
 }
 
+#logo_description a:hover, 
 .navbar-custom .nav li a:hover,
 .navbar-custom .nav li a:focus,
 .navbar-custom .nav li a.active {
@@ -199,9 +201,8 @@ li.thumbnail.ripetizioni-listing.ng-scope {
 }
 
 .subtitle {
-  color: #ffffff;
-  line-height: 30px;
-  font-size: 30px;
+  line-height: 26px;
+  font-size: 26px;
 
 }
 
@@ -222,37 +223,41 @@ li.thumbnail.ripetizioni-listing.ng-scope {
 /*REGISTRATION*/
 
 .input-group-addon.primary {
-    color: rgb(255, 255, 255);
-    background-color: rgb(50, 118, 177);
-    border-color: rgb(40, 94, 142);
+  color: rgb(255, 255, 255);
+  background-color: rgb(50, 118, 177);
+  border-color: rgb(40, 94, 142);
 }
 .input-group-addon.success {
-    color: rgb(255, 255, 255);
-    background-color: rgb(92, 184, 92);
-    border-color: rgb(76, 174, 76);
+  color: rgb(255, 255, 255);
+  background-color: rgb(92, 184, 92);
+  border-color: rgb(76, 174, 76);
 }
 .input-group-addon.info {
-    color: rgb(255, 255, 255);
-    background-color: rgb(57, 179, 215);
-    border-color: rgb(38, 154, 188);
+  color: rgb(255, 255, 255);
+  background-color: rgb(57, 179, 215);
+  border-color: rgb(38, 154, 188);
 }
 .input-group-addon.warning {
-    color: rgb(255, 255, 255);
-    background-color: rgb(240, 173, 78);
-    border-color: rgb(238, 162, 54);
+  color: rgb(255, 255, 255);
+  background-color: rgb(240, 173, 78);
+  border-color: rgb(238, 162, 54);
 }
 .input-group-addon.danger {
-    color: rgb(255, 255, 255);
-    background-color: rgb(217, 83, 79);
-    border-color: rgb(212, 63, 58);
+  color: rgb(255, 255, 255);
+  background-color: rgb(217, 83, 79);
+  border-color: rgb(212, 63, 58);
 }
 
 .multiLabel {margin:0px;}
 
+/*FIX per glyphicon che hanno altezza maggiore di input*/
 form {
-    font-size: 14px;
+  font-size: 14px;
 }
 
 form .glyphicon {
-    top: 0;
+  top: 0;
 }
+
+
+/*vista dettaglio*/
