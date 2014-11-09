@@ -4,11 +4,10 @@ window.addEventListener("resize", function() {
 
 function fixHeight()
 {
-    //All pages at least 100% of viewport height
-    var viewPortHeight =  $(window).height();
+    var viewPortHeight =  $(window).height()-32;
 
     // Set all pages with class="page-content" to be at least contentHeight
-    $('section').css({'min-height': viewPortHeight + 'px'});
+    $('section').css({'height': viewPortHeight + 'px'});
 }
 
 // jQuery to collapse the navbar on scroll
