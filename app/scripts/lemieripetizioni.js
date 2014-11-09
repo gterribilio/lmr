@@ -6,7 +6,6 @@ function fixHeight()
 {
     //All pages at least 100% of viewport height
     var viewPortHeight =  $(window).height();
-    var viewPortWidth =  $(window).width();
 
     // Set all pages with class="page-content" to be at least contentHeight
     $('section').css({'min-height': viewPortHeight + 'px'});

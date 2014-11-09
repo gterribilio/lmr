@@ -376,7 +376,7 @@ N.B. : i commenti css si fanno solo in questo modo, altrimenti spacco tutto!;
 /*SOCIAL ICONS*/
 
 /* SOCIAL ICONS - GENERAL */
-.social { list-style:none; margin: 10px; width:464px; height:50px;}
+.social { list-style:none; margin: 10px; height:50px;}
 .social li { display:inline; float:left; background-repeat:no-repeat; }
 .social li a { display:block; width:48px; height:48px; margin-right:5px; position:relative; text-decoration:none; }
 .social li a strong { font-weight:bold; position:absolute; left:20px; top:-1px; color:#fff; padding:3px; z-index:9999;
