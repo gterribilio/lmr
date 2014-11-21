@@ -2,7 +2,7 @@ jQuery.event.add(window, "load", resize);
 jQuery.event.add(window, "resize", resize);
 
   function resize() {
-      var h = jQuery(window).height();
+      var h = jQuery(window).height(); /*footer height*/
       var w = jQuery(window).width();
       jQuery("section").css({"width": w, "height": h});
     }

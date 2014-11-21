@@ -1,0 +1,2 @@
+INDEX VERSION 1.127+/Users/giuseppe/Dropbox/angularjs/lemieripetizioni_new/.metadata/.plugins/org.eclipse.jdt.core
+1031585052.index
