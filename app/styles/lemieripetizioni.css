@@ -1,16 +1,28 @@
 /*Disposti in ordine decrescente di importanza*/
 
-html {
-  position: relative;
-  height:100%;
-  min-height:100%;
+html,body, .view-container, .view-frame.ng-scope {
+   height:100%;
+    width:100%;
+    margin:0;
+    padding:0;
 }
 
 body {
-  min-height:100%;
+  background-image:url('../images/noise.png');
+  background-color: #F7F7F7;
+}
+
+section {
+  position:relative;
+  height:100%;
+  overflow:visible;
+  margin:10px;
 }
 
 /*reset di base*/
+
+*{margin:0px;padding:0px;}
+
 ul,p {
   -webkit-padding-start: 0px;
   -webkit-padding-end: 0px;
@@ -30,18 +42,6 @@ ul,p {
 }
 
 /*end reset di base*/
-
-section,article,header {
-  overflow:visible; /*in questo modo se il contenuto aumenta, anche la section aumenta*/
-}
-
-section {
-  padding-top:60px;
-  float:left;
-  clear:both;
-  width:100%;
-  background-image:url('../images/noise.png');
-}
 
 #map {
   height:400px;
@@ -264,6 +264,3 @@ form {
 form .glyphicon {
   top: 0;
 }
-
-
-/*vista dettaglio*/

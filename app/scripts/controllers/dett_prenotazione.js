@@ -38,7 +38,7 @@ dett.controller('DettPrenotazioneCtrl', [ '$scope','$rootScope', '$routeParams',
                 services.getFromRESTServer("id_ripe="+$scope.id_ripetizione+"&motivo="+motivo,"annulla_ripetizione").
                 success(function (data) {
                     alert("Prenotazione annullata con successo!");
-                    $location.path("/");
+                    $location.path("/home");
                 });
             }          
         }

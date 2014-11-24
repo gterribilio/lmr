@@ -1,7 +1,7 @@
-<section id="login" ng-show="showLogin" style="height:100vh;"><!--devo settare mannualmente l'altezza di questo div in quanto lo script non lo vede-->
+<section id="login" ng-show="showLogin"><!--devo settare mannualmente l'altezza di questo div in quanto lo script non lo vede-->
 	<!--al termine di ogni action onclick bisogna inserire return false, che equivale a event.preventDefault. In questo modo quando
 	faccio a href="#" non viene utilizzato il plugin scrollTop e-->
-	<div id="loginbox" style="margin-top:10px;" class="mainbox col-md-6 col-md-offset-3 col-xs-12">                    
+	<div id="loginbox" class="mainbox col-md-6 col-md-offset-3 col-xs-12">                    
 		<div class="panel panel-info" >
 			<div class="panel-heading">
 				<div class="panel-title">Accedi</div>
@@ -25,12 +25,12 @@
 					</div>
 					<div style="margin-top:10px" class="form-group">
 						<!-- Button -->
-						<div class="col-sm-12 controls">
+						<div class="text-center">
 							<button class="btn btn-lg btn-success" ng-click='doAccedi();'>Login</button>
-							<button class="btn btn-lg btn-primary">
+							<!--<button class="btn btn-lg btn-primary">
 								<span id="facebook_button_span_icon"></span>
 								<span style="float:left;">Login con Facebook</span>
-							</button>
+							</button>-->
 						</div>
 					</div>
 					<div class="form-group">

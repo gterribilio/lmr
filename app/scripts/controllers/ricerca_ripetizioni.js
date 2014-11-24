@@ -14,7 +14,6 @@
   function ($scope, $rootScope, $window, services, localStorageService, $location, $anchorScroll) {
 
     $scope.ripetizioni = {};
-    $scope.ripetizioniPrenotate = {};
     $scope.my_materia = null;
     $scope.username = null;
     $scope.password = null;
@@ -59,13 +58,8 @@ success(function (data) {
         $scope.my_materia=null;
     };
 
-//devo usare rootscope siccome è esterno al controller RicercaRipetizioniCtrl
+    $rootScope.gotoHome = function() {
+       $location.path("/home");
+   };
 
-$rootScope.doLeMieRipetizioni = function() {
-    services.getFromRESTServer("id_utente=" + $scope.userData.ID_UTENTE,"ricerca_ripetizioni_prenotate").
-    success(function (data) {
-        $scope.ripetizioniPrenotate=data;
-        $scope.msg=data.errMsg;
-    });
-} //end doLeMieRipetizioni
 }]);

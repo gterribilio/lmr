@@ -3,15 +3,10 @@ var dett = angular.module('LoginCtrlModule', []);
 dett.controller('LoginCtrl',  ['$scope', '$rootScope', '$window', 'services', '$location', 'localStorageService', 
     function ($scope, $rootScope, $window, services, $location, localStorageService) {
 
-        $rootScope.showLogin=false;
+        //quando parte l'applicazione faccio sempre vedere il login
+        $rootScope.showLogin=true;
         $rootScope.showRicercaRipetizioni=false;
         $rootScope.showLeMieRipetizioni=false;
-
-        $rootScope.doLogout = function() {
-            localStorageService.clearAll();
-            $location.path("/");
-            $rootScope.isLogged = false;
-        };
 
 
         $scope.doAccedi= function() {
@@ -30,7 +25,7 @@ dett.controller('LoginCtrl',  ['$scope', '$rootScope', '$window', 'services', '$
                     $rootScope.userData=data[0];
                     localStorageService.set("userData",JSON.stringify($rootScope.userData));
 
-                    $location.path("/ricerca_ripetizione");
+                    $location.path("/home");
 
                     alert("Benvenuto " + $rootScope.userData.NOME +"! Accedi subito dal menù a tutte le funzioni e trova la tua ripetizione!");
 

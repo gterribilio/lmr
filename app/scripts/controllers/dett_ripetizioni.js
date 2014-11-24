@@ -37,7 +37,7 @@ dett.controller('DettRipetizioniCtrl', [ '$scope','$rootScope', '$routeParams', 
             services.getFromRESTServer("id_rip="+$scope.id_ripetizione+"&my_id="+$scope.userData.ID_UTENTE,"prenotazione").
             success(function (data) {
                 alert("Prenotazione effettuata correttamente!");
-                $location.path("/");
+                $location.path("/home");
             });
         }
     }

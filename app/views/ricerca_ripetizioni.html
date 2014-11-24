@@ -1,6 +1,6 @@
-<section id="ricerca_ripetizione" ng-show="isLogged && showRicercaRipetizioni">
+<section id="ricerca_ripetizione" ng-show="isLogged" autoscroll="true">
 	<form name="searchForm" role="form" class="form-horizontal" novalidate>
-		<button type="button" class="close" ng-click="$parent.showRicercaRipetizioni=false;"><span aria-hidden="true" class="glyphicon glyphicon-remove-circle"></span><span class="sr-only">Close</span></button>
+		<button type="button" class="close" ng-click="$parent.gotoHome();"><span aria-hidden="true" class="glyphicon glyphicon-remove-circle"></span><span class="sr-only">Close</span></button>
 		<div class="row">
 			<div class="col-lg-8 col-lg-offset-2 text-center">
 				<h3>Che giorno hai tempo?</h3>
@@ -71,11 +71,12 @@
 			<div id="ripetizioni_list" class="col-md-8 col-md-offset-2" style="margin-top:60px;">
 				<div ng-if="ripetizioni.length !=0">						
 					<ul class="ripetizioni">
-						<li ng-repeat="ripetizione in ripetizioni" class="thumbnail ripetizioni-listing">
+						<li id="{{$index}}" ng-repeat="ripetizione in ripetizioni" class="thumbnail ripetizioni-listing itemRipetizioni">
 							<a href="#/ripetizione/{{ripetizione.id_ripetizione}}" class="thumb"><img src="images/logo.png" /></a>
 							<p>DOCENTE: <a href="#/ripetizione/{{ripetizione.id_ripetizione}}">{{ripetizione.cogn_prof}} {{ripetizione.nome_prof}}</a></p>
 							<p>QUANDO: {{ripetizione.DATA}}</p>
 							<p>DALLE: {{ripetizione.ora_inizio}} ALLE: {{ripetizione.ora_fine}}</p>
+							<p>MATERIA: {{ripetizione.materia}}</p>
 						</li>
 					</ul>
 				</div>
@@ -86,28 +87,6 @@
 			<div ng-if="ripetizioni.length == 0" class="text-center">
 				<p>Al momento non ci sono ripetizioni disponibili per questa ricerca! Possiamo aiutarti in qualche modo?</p>
 			</div>
-		</div>
-	</div>
-</section>
-
-
-<section id="lemieripetizioni" ng-show="isLogged && showLeMieRipetizioni"><!--devo settare mannualmente l'altezza di questo div in quanto lo script non lo vede-->
-	<button type="button" class="close" ng-click="$parent.showLeMieRipetizioni=false;"><span aria-hidden="true" class="glyphicon glyphicon-remove-circle"></span><span class="sr-only">Close</span></button>
-	<h2>Le mie ripetizioni</h2>
-	<div id="ripetizioniPrenotate_list" class="col-md-8 col-md-offset-2" style="margin-top:60px;">
-		<div ng-if="ripetizioniPrenotate.length !=0">						
-			<ul class="ripetizioni">
-				<li ng-repeat="ripetizione in ripetizioniPrenotate" class="thumbnail ripetizioni-listing">
-					<a href="" class="thumb"><img src="images/logo.png"></a>
-					<p>DOCENTE: <a ng-href="#/prenotazione/{{ripetizione.ID_RIPETIZIONE}}">{{ripetizione.COGN_PROF}} {{ripetizione.NOME_PROF}}</a></p>
-					<p>QUANDO: {{ripetizione.DATA}}</p>
-					<p>DALLE: {{ripetizione.ORA_INIZIO}} ALLE: {{ripetizione.ORA_FINE}}</p>
-				</li>
-			</ul>
-		</div>
-
-		<div ng-if="ripetizioniPrenotate.length == 0" class="text-center">
-			<p>Al momento non hai ripetizioni prenotate, cosa aspetti? Inizia subito!</p>
 		</div>
 	</div>
 </section>

@@ -1,24 +1,35 @@
 <section id="dettaglio_ripetizione">
+     <button type="button" class="close" ng-click="$parent.gotoHome();"><span aria-hidden="true" class="glyphicon glyphicon-remove-circle"></span><span class="sr-only">Close</span></button>
     <div class="panel panel-primary"> 
         <div class="panel-heading">
             <h3 class="panel-title">Dettaglio Ripetizione</h3>
         </div>
         <div class="panel-body">
-
-            <div style="float:left;">
-                <img src="images/logo.png">
-            </div>
-            <div style="float:left;">
-                <p>DOCENTE: {{ripetizione.NOME_PROF}} {{ripetizione.COGN_PROF}}</p>
-                <p>PROFESSIONE: {{ripetizione.PROFESSIONE}}</p>
-                <p>QUANDO: {{ripetizione.DATA | date:"dd/MM/yyyy"}}</p>
-                <p>DALLE: {{ripetizione.ORA_INIZIO}} ALLE: {{ripetizione.ORA_FINE}}</p>
-                <p>MATERIA: {{ripetizione.D_MAT}}</p>
-                <p>CITTA': {{ripetizione.LUOGO}}</p>
-                <p>INDIRIZZO: {{ripetizione.INDIRIZZO}}</p>
-            </div>
-            <div class="text-center" style="clear:both;">
-                <a class="btn btn-lg btn-success" ng-click='prenotaRipetizione();'>Prenota <span class="glyphicon glyphicon-ok"></span></a>
+            <div class="container container-xs-height">
+                <div class="row row-xs-height">
+                    <div style="padding:0px;" class="col-xs-3 col-xs-height">
+                        <img src="images/logo.png">
+                    </div>
+                    <div style="padding:0px;" class="col-xs-9 col-xs-height col-top">
+                        <div class="item">
+                            <div class="content">
+                                <div style="margin-left:auto;margin-right:auto;"> <!-- class="text-center"-->
+                                    <div>
+                                        <p><label>DOCENTE:</label> {{ripetizione.NOME_PROF}} {{ripetizione.COGN_PROF}}</p>
+                                        <p><label>PROFESSIONE:</label> {{ripetizione.PROFESSIONE}}</p>
+                                        <p><label>QUANDO:</label> {{ripetizione.DATA | date:"dd/MM/yyyy"}}</p>
+                                        <p><label>DALLE:</label> {{ripetizione.ORA_INIZIO}} ALLE: {{ripetizione.ORA_FINE}}</p>
+                                        <p><label>MATERIA:</label> {{ripetizione.D_MAT}}</p>
+                                        <p><label>CITTA':</label> {{ripetizione.LUOGO}}</p>
+                                        <p><label>INDIRIZZO:</label> {{ripetizione.INDIRIZZO}}</p>
+                                    </div>
+                                    <a class="btn btn-lg btn-success" ng-click='prenotaRipetizione();' style="margin-left:10px;">Prenota <span class="glyphicon glyphicon-ok"></span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>

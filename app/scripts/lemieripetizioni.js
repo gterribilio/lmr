@@ -1,13 +1,18 @@
-jQuery.event.add(window, "load", resize);
-jQuery.event.add(window, "resize", resize);
+$(function() {
+    FastClick.attach(document.body);
+});
 
-  function resize() {
-      var h = jQuery(window).height(); /*footer height*/
-      var w = jQuery(window).width();
-      jQuery("section").css({"width": w, "height": h});
-    }
+/*function resize() {
+  var h = $(window).height(); /*footer height
+  var w = $(window).width();
+  $("section").css({"width": w, "height": h});
+}
 
+$(window).on("load resize scroll",function(e){
+   resize();
+});*/
 
+/*
 // jQuery to collapse the navbar on scroll
 $(window).scroll(function() {
     if ($(".navbar").offset().top > 50) {
@@ -37,7 +42,7 @@ $(function() {
             }
         }
     });
-});
+});*/
 
 // Closes the Responsive page-top on page-top Item Click
 $('.navbar-collapse ul li a').click(function() {
@@ -179,12 +184,13 @@ function loadScript() {
   script.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyCOreuv4T4rDNuUZ73GYwxNOMruec_FuCE&sensor=false&callback=initialize';
   document.body.appendChild(script);
 }
-window.onload = loadScript;
+//window.onload = loadScript; <!-- da riaggiungere per caricare map asincrona-->
 
 /*END GOOGLE MAPS SCRIPTS*/
 
 
 /*ANIMATION DEL FOOTER PER FADE IN - FADE - OUT*/
+/*
 $(window).scroll(function () {
     var y = $(window).scrollTop(),
     x = $('.animated').offset().top - 200;
@@ -193,7 +199,7 @@ $(window).scroll(function () {
     } else {
         $('.animated').removeClass('fadeInUp').addClass('fadeOutDown');
     }
-});
+});*/
 
 function showStudente() {
     $("#panel_studente").show();
