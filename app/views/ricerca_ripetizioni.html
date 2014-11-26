@@ -62,13 +62,13 @@
 				<button class="btn btn-lg btn-primary col-xs-4 col-xs-offset-4 col-md-3 col-md-offset-3" ng-click="doReset();">
 					Pulisci
 				</button>
-				<button class="btn btn-lg btn-primary col-xs-4 col-xs-offset-4 col-md-3 col-md-offset-1" ng-click="doRicerca();">Ricerca</button>
+				<a href="#result_research" class="btn btn-lg btn-primary col-xs-4 col-xs-offset-4 col-md-3 col-md-offset-1" ng-click="doRicerca();">Ricerca</a>
 			</div>	
 		</div>
 	</form>
 	<div id="result_research">
 		<div class="row">
-			<div id="ripetizioni_list" class="col-md-8 col-md-offset-2" style="margin-top:60px;">
+			<div id="ripetizioni_list" class="col-md-8 col-md-offset-2" style="margin-top:30px;">
 				<div ng-if="ripetizioni.length !=0">						
 					<ul class="ripetizioni">
 						<li id="{{$index}}" ng-repeat="ripetizione in ripetizioni" class="thumbnail ripetizioni-listing itemRipetizioni">

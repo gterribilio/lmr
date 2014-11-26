@@ -16,7 +16,7 @@ section {
   position:relative;
   height:100%;
   overflow:visible;
-  margin:10px;
+  padding:10px;
 }
 
 /*reset di base*/
@@ -65,7 +65,7 @@ ul,p {
 
 .ripetizioni li {
   clear: both;
-  height: 100px;
+  min-height: 100px;
   padding-top: 10px;
 }
 
@@ -82,7 +82,7 @@ ul,p {
 }
 
 label {
-	margin:10px;
+	margin:5px;
 }
 
 li.thumbnail.ripetizioni-listing.ng-scope {
